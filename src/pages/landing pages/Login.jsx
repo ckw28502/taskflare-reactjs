@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import InputComponent from "../../components/InputComponent"
-import { ErrorMessage, Form, Formik } from "formik";
+import { Form, Formik } from "formik";
 import * as Yup from 'yup';
 import PasswordComponent from "../../components/PasswordComponent";
 import ButtonComponent from "../../components/ButtonComponent";
-import Toastify from "../../tools/toastifyCaller";
 
 
 function Login() {
@@ -15,7 +14,7 @@ function Login() {
     });
 
     function submit(values) {
-        
+        console.log(values);
     }
 
     return(

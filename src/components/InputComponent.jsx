@@ -2,13 +2,7 @@ import { ErrorMessage, useField } from "formik"
 import PropTypes from "prop-types"
 
 export default function Input(props) {
-  const [field, meta] = useField(props);
-
-  function handleChange(e) {
-    if (props.getValue) {
-      props.getValue(e)
-    }
-  }
+  const field = useField(props)[0];
 
   return (
     <>
