@@ -27,14 +27,14 @@ function Login() {
             >
                 {({ isSubmitting })=>(
                     <Form className="place-self-center justify-self-center flex flex-col">
-                        <InputComponent required type="email" name="email" label="Email Address" id="login-email"/>
-                        <PasswordComponent required name="password" label="Password" id="login-password"/>
+                        <InputComponent type="text" name="email" label="Email Address" id="login-email"/>
+                        <PasswordComponent name="password" label="Password" id="login-password"/>
                         <ButtonComponent type="submit" disabled={isSubmitting} color="gray" name="login" id="login-button" />
                     </Form>
                 )}
             </Formik>
             <Link to={"/register"} >
-                <p className="text-blue-500 hover:text-purple-500 underline cursor-pointer">Sign Up</p>
+                <p className="text-blue-900 hover:text-purple-900 underline cursor-pointer">Sign Up</p>
             </Link>
         </>
     )
