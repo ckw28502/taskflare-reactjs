@@ -25,13 +25,11 @@ function Login() {
                 validationSchema={validationSchema}
                 onSubmit={values => submit(values)}
             >
-                {({ isSubmitting })=>(
-                    <Form className="place-self-center justify-self-center flex flex-col">
-                        <InputComponent type="text" name="email" label="Email Address" id="login-email"/>
-                        <PasswordComponent name="password" label="Password" id="login-password"/>
-                        <ButtonComponent type="submit" disabled={isSubmitting} color="gray" name="login" id="login-button" />
-                    </Form>
-                )}
+                <Form className="place-self-center justify-self-center flex flex-col">
+                    <InputComponent type="text" name="email" label="Email Address" id="login-email"/>
+                    <PasswordComponent name="password" label="Password" id="login-password"/>
+                    <ButtonComponent type="submit" color="gray" name="login" id="login-button" />
+                </Form>
             </Formik>
             <Link to={"/register"} >
                 <p className="text-blue-900 hover:text-purple-900 underline cursor-pointer">Sign Up</p>
