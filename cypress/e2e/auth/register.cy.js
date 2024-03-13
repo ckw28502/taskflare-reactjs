@@ -15,6 +15,7 @@ describe("register page tests", () => {
     cy.get("#register-password").click()
     cy.get("#register-confirmation-password").click()
     cy.get("#register-button").click()
+    
     cy.contains("div","Email is required")
     cy.contains("div","Password is required")
     cy.contains("div","Confirmation password is required")
@@ -23,6 +24,7 @@ describe("register page tests", () => {
   it("should show error message if email is invalid!", () => {
     cy.get("#register-email").type("user")
     cy.get("#register-button").click()
+
     cy.contains("div","Invalid email address")
   })
 
@@ -31,6 +33,7 @@ describe("register page tests", () => {
     cy.get("#register-password").type(user.password)
     cy.get("#register-confirmation-password").type("useer")
     cy.get("#register-button").click()
+
     cy.contains("div","Passwords must match")
   })
 
@@ -43,6 +46,7 @@ describe("register page tests", () => {
     cy.get("#register-password").type(user.password)
     cy.get("#register-confirmation-password").type(user.confirmationPassword)
     cy.get("#register-button").click()
+
     cy.contains("div", "Email is registered!")
   });
 
@@ -53,6 +57,7 @@ describe("register page tests", () => {
     cy.get("#register-password").type(user.password)
     cy.get("#register-confirmation-password").type(user.confirmationPassword)
     cy.get("#register-button").click()
+
     cy.contains("div", "You are registered now!")
   });
 

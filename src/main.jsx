@@ -3,10 +3,12 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/landing pages/Login.jsx";
-import LandingContainer from "./pages/landing pages/LandingContainer.jsx";
 import { ToastContainer } from "react-toastify";
 import Register from "./pages/landing pages/Register.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import Container from "./pages/main/Container.jsx";
+import Dashboard from "./pages/main/Dashboard.jsx";
+import LandingContainer from "./pages/landing pages/LandingContainer.jsx";
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -30,6 +32,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             </LandingContainer>
           }
         />
+        <Route path="/" element={
+          <Container>
+            <Dashboard />
+          </Container>
+        } />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

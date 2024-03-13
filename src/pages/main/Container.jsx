@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function LandingContainer(props) {
+function Container(props) {
     return(
         <div className="container flex justify-center items-center w-screen h-screen place-content-center">
             <div className="w-1/2 bg-slate-100 py-6 px-1 max-h-1/2 place text-center rounded-lg flex flex-col">
@@ -10,8 +10,8 @@ function LandingContainer(props) {
     )
 }
 
-LandingContainer.propTypes = {
+Container.propTypes = {
     children: PropTypes.node.isRequired
 };
     
-export default LandingContainer;
+export default Container;

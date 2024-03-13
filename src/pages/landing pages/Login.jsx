@@ -1,12 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import InputComponent from "../../components/InputComponent"
 import { Form, Formik } from "formik";
 import * as Yup from 'yup';
 import PasswordComponent from "../../components/PasswordComponent";
 import ButtonComponent from "../../components/ButtonComponent";
-
+import login from "../../services/auth/login";
+import toastify from "../../tools/toastify";
+import getError from "../../tools/error/error";
 
 function Login() {
+    const navigate = useNavigate();
 
     const validationSchema = Yup.object().shape({
         email: Yup.string().email('Invalid email address').required('Email is required'),
@@ -14,7 +17,16 @@ function Login() {
     });
 
     function submit(values) {
-        console.log(values);
+        login(values)
+        .then(data => {
+            sessionStorage.setItem("token", data.token);
+            sessionStorage.setItem("refreshToken", data.refreshToken);
+            navigate("/");
+        })
+        .catch(res => {
+            const message = getError(res.response.data.message);
+            toastify.error(message);
+        })
     }
 
     return(
@@ -22,7 +34,7 @@ function Login() {
             <h1 className="text-4xl font-bold mb-5">SIGN IN</h1>
             <Formik
                 initialValues={{ email: "", password: "" }}
-                validationSchema={validationSchema}
+                validationSchema={ validationSchema }
                 onSubmit={values => submit(values)}
             >
                 <Form className="place-self-center justify-self-center flex flex-col">
@@ -31,7 +43,7 @@ function Login() {
                     <ButtonComponent type="submit" color="gray" name="login" id="login-button" />
                 </Form>
             </Formik>
-            <Link to={"/register"} >
+            <Link to="/register" >
                 <p className="text-blue-900 hover:text-purple-900 underline cursor-pointer">Sign Up</p>
             </Link>
         </>

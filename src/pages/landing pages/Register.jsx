@@ -6,7 +6,7 @@ import PasswordComponent from "../../components/PasswordComponent";
 import ButtonComponent from "../../components/ButtonComponent";
 import register from "../../services/auth/register"
 import toastify from "../../tools/toastify";
-import getError from "../../tools/error handling/error";
+import getError from "../../tools/error/error";
 
 
 function Register() {
