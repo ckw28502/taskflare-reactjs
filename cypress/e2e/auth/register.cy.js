@@ -16,16 +16,16 @@ describe("register page tests", () => {
     cy.get("#register-confirmation-password").click()
     cy.get("#register-button").click()
     
-    cy.contains("div","Email is required")
-    cy.contains("div","Password is required")
-    cy.contains("div","Confirmation password is required")
+    cy.contains("div","Email is required!")
+    cy.contains("div","Password is required!")
+    cy.contains("div","Confirmation password is required!")
   })
 
   it("should show error message if email is invalid!", () => {
     cy.get("#register-email").type("user")
     cy.get("#register-button").click()
 
-    cy.contains("div","Invalid email address")
+    cy.contains("div","Invalid email address!")
   })
 
   it("should show error message if password and confirmation password missmatch!", async() => {
@@ -34,7 +34,7 @@ describe("register page tests", () => {
     cy.get("#register-confirmation-password").type("useer")
     cy.get("#register-button").click()
 
-    cy.contains("div","Passwords must match")
+    cy.contains("div","Passwords must match!")
   })
 
   it("should toast an error if email is already used!", async() => {

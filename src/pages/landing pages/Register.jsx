@@ -12,10 +12,10 @@ import getError from "../../tools/error/error";
 function Register() {
 
     const validationSchema = Yup.object().shape({
-        email: Yup.string().email("Invalid email address").required("Email is required"),
-        password: Yup.string().required("Password is required"),
-        confirmationPassword: Yup.string().required("Confirmation password is required")
-        .oneOf([Yup.ref("password"), null], "Passwords must match")
+        email: Yup.string().email("Invalid email address!").required("Email is required!"),
+        password: Yup.string().required("Password is required!"),
+        confirmationPassword: Yup.string().required("Confirmation password is required!")
+        .oneOf([Yup.ref("password"), null], "Passwords must match!")
     });
 
     function submit(values) {

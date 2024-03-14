@@ -12,7 +12,7 @@
     "prettier:fix": "prettier --write .",
     "format": "npm run lint:fix && npm run prettier:fix",
     "preview": "vite preview",
-    "test":"cypress open"
+    "test":"docker compose down && docker compose up -d --build && cypress open"
   },
   "dependencies": {
     "autoprefixer": "^10.4.18",
