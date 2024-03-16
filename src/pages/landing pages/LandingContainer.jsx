@@ -1,12 +1,30 @@
+import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 
 function LandingContainer(props) {
     return(
-        <div className="container flex justify-center items-center w-screen h-screen place-content-center">
-            <div className="w-1/2 bg-slate-100 py-6 px-1 max-h-1/2 place text-center rounded-lg flex flex-col">
-                {props.children}
-            </div>
-        </div>
+        <Box sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '100vw',
+            height: '100vh'
+          }}>
+            <Box sx={{
+              width: '50%',
+              backgroundColor: '#f0f0f0',
+              padding: '24px',
+              maxHeight: '100vh',
+              textAlign: 'center',
+              borderRadius: '16px',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              p: 4
+            }}>
+              {props.children}
+            </Box>
+          </Box>
     )
 }
 

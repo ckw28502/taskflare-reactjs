@@ -7,6 +7,7 @@ import ButtonComponent from "../../components/ButtonComponent";
 import login from "../../services/auth/login";
 import toastify from "../../tools/toastify";
 import getError from "../../tools/error/error";
+import { Typography } from "@mui/material";
 
 function Login() {
     const navigate = useNavigate();
@@ -31,7 +32,7 @@ function Login() {
 
     return(
         <>
-            <h1 className="text-4xl font-bold mb-5">SIGN IN</h1>
+            <Typography variant="h4" sx={{ mb: 1 }}>SIGN IN</Typography>
             <Formik
                 initialValues={{ email: "", password: "" }}
                 validationSchema={ validationSchema }
@@ -40,7 +41,7 @@ function Login() {
                 <Form className="place-self-center justify-self-center flex flex-col">
                     <InputComponent type="text" name="email" label="Email Address" id="login-email"/>
                     <PasswordComponent name="password" label="Password" id="login-password"/>
-                    <ButtonComponent type="submit" color="gray" name="login" id="login-button" />
+                    <ButtonComponent type="submit" name="login" id="login-button" />
                 </Form>
             </Formik>
             <Link to="/register" >

@@ -7,6 +7,7 @@ import ButtonComponent from "../../components/ButtonComponent";
 import register from "../../services/auth/register"
 import toastify from "../../tools/toastify";
 import getError from "../../tools/error/error";
+import { Typography } from "@mui/material";
 
 
 function Register() {
@@ -29,7 +30,7 @@ function Register() {
 
     return(
         <>
-            <h1 className="text-4xl font-bold mb-5">SIGN UP</h1>
+            <Typography variant="h4">SIGN UP</Typography>
             <Formik
                 initialValues={{ email: "", password: "", confirmationPassword: "" }}
                 validationSchema={validationSchema}
@@ -44,11 +45,11 @@ function Register() {
                             label="Confirm Password" 
                             id="register-confirmation-password"
                         />
-                        <ButtonComponent type="submit" color="gray" name="register" id="register-button" />
+                        <ButtonComponent type="submit" name="register" id="register-button" />
                     </Form>
             </Formik>
             <Link to={"/login"} >
-                <p className="text-blue-900 hover:text-purple-900 underline cursor-pointer">Sign In</p>
+                <p className="text-blue-900 hover:text-purple-900 underline cursor-pointer mt-3">Sign In</p>
             </Link>
         </>
     )
