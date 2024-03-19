@@ -26,7 +26,7 @@ export default function PasswordComponent(props) {
       position: "relative"
     }}>
       <FormControl sx={{ width: "100%" }} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+          <InputLabel htmlFor="outlined-adornment-password">{props.label}</InputLabel>
           <OutlinedInput
             {...props}
             {...field}
@@ -60,7 +60,6 @@ export default function PasswordComponent(props) {
 }
 
 PasswordComponent.propTypes = {
-    getValue: PropTypes.func,
     label: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     value: PropTypes.string,

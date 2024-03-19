@@ -1,23 +1,19 @@
-import { Link, useNavigate } from "react-router-dom";
-import InputComponent from "../../components/InputComponent"
-import { Form, Formik } from "formik";
+import { useNavigate } from "react-router-dom";
 import * as Yup from 'yup';
-import PasswordComponent from "../../components/PasswordComponent";
-import ButtonComponent from "../../components/ButtonComponent";
 import login from "../../services/auth/login";
 import toastify from "../../tools/toastify";
 import getError from "../../tools/error/error";
-import { Typography } from "@mui/material";
+import LandingForm from "../../components/LandingForm";
 
 function Login() {
     const navigate = useNavigate();
 
-    const validationSchema = Yup.object().shape({
+    const validationSchema = {
         email: Yup.string().email('Invalid email address!').required('Email is required!'),
         password: Yup.string().required('Password is required!')
-    });
+    }
 
-    function submit(values) {
+    function onSubmit(values) {
         login(values)
         .then(data => {
             sessionStorage.setItem("token", data.token);
@@ -31,23 +27,15 @@ function Login() {
     }
 
     return(
-        <>
-            <Typography variant="h4" sx={{ mb: 1 }}>SIGN IN</Typography>
-            <Formik
-                initialValues={{ email: "", password: "" }}
-                validationSchema={ validationSchema }
-                onSubmit={values => submit(values)}
-            >
-                <Form className="place-self-center justify-self-center flex flex-col">
-                    <InputComponent type="text" name="email" label="Email Address" id="login-email"/>
-                    <PasswordComponent name="password" label="Password" id="login-password"/>
-                    <ButtonComponent type="submit" name="login" id="login-button" />
-                </Form>
-            </Formik>
-            <Link to="/register" >
-                <p className="text-blue-900 hover:text-purple-900 underline cursor-pointer">Sign Up</p>
-            </Link>
-        </>
+        <LandingForm 
+            validationSchema={validationSchema}
+            action="LOGIN"
+            onSubmit={onSubmit}
+            initialValues={{
+                email: "",
+                password: ""
+            }}
+        />
     )
 }
     

@@ -1,25 +1,20 @@
-import { Link } from "react-router-dom";
-import InputComponent from "../../components/InputComponent"
-import { Form, Formik } from "formik";
 import * as Yup from 'yup';
-import PasswordComponent from "../../components/PasswordComponent";
-import ButtonComponent from "../../components/ButtonComponent";
 import register from "../../services/auth/register"
 import toastify from "../../tools/toastify";
 import getError from "../../tools/error/error";
-import { Typography } from "@mui/material";
+import LandingForm from "../../components/LandingForm";
 
 
 function Register() {
 
-    const validationSchema = Yup.object().shape({
+    const validationSchema = {
         email: Yup.string().email("Invalid email address!").required("Email is required!"),
         password: Yup.string().required("Password is required!"),
         confirmationPassword: Yup.string().required("Confirmation password is required!")
         .oneOf([Yup.ref("password"), null], "Passwords must match!")
-    });
+    };
 
-    function submit(values) {
+    function onSubmit(values) {
         register(values)
         .then(() => toastify.success("You are registered now!"))
         .catch(res => {
@@ -29,29 +24,16 @@ function Register() {
     }
 
     return(
-        <>
-            <Typography variant="h4">SIGN UP</Typography>
-            <Formik
-                initialValues={{ email: "", password: "", confirmationPassword: "" }}
-                validationSchema={validationSchema}
-                onSubmit={values => submit(values)}
-                validateOnChange={true}
-                >
-                    <Form className="place-self-center justify-self-center flex flex-col">
-                        <InputComponent type="text" name="email" label="Email Address" id="register-email"/>
-                        <PasswordComponent name="password" label="Password" id="register-password"/>
-                        <PasswordComponent  
-                            name="confirmationPassword" 
-                            label="Confirm Password" 
-                            id="register-confirmation-password"
-                        />
-                        <ButtonComponent type="submit" name="register" id="register-button" />
-                    </Form>
-            </Formik>
-            <Link to={"/login"} >
-                <p className="text-blue-900 hover:text-purple-900 underline cursor-pointer mt-3">Sign In</p>
-            </Link>
-        </>
+        <LandingForm 
+            validationSchema={validationSchema}
+            action="REGISTER"
+            onSubmit={onSubmit}
+            initialValues={{
+                email: "",
+                password: "",
+                confirmationPassword: ""
+            }}
+        />
     )
 }
     

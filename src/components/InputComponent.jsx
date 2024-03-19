@@ -1,9 +1,14 @@
+import { useTheme } from "@emotion/react";
 import { Box, TextField } from "@mui/material";
 import { ErrorMessage, useField } from "formik"
 import PropTypes from "prop-types"
 
-export default function Input(props) {
+function InputComponent(props) {
   const field = useField(props)[0];
+
+  const theme = useTheme();
+
+  console.log(theme.palette.mode);
 
   return (
     <Box sx={{
@@ -27,7 +32,7 @@ export default function Input(props) {
   )
 }
 
-Input.propTypes = {
+InputComponent.propTypes = {
     getValue: PropTypes.func,
     type: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
@@ -35,3 +40,5 @@ Input.propTypes = {
     value: PropTypes.string,
     id: PropTypes.string.isRequired 
 }
+
+export default InputComponent;
