@@ -6,7 +6,8 @@ import Register from "./pages/landing pages/Register";
 import NotFound from "./pages/NotFound";
 import lightTheme from "./mui/theme/light";
 import darkTheme from "./mui/theme/dark";
-import { useState } from "react";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 function App() {
     const router = createBrowserRouter([
@@ -24,18 +25,18 @@ function App() {
         }
       ])
 
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    const isDarkMode = useSelector(state => state.darkMode.isDarkMode);
 
-    function toggleDarkMode() {
-        if (isDarkMode) {
-            document.body.classList.remove("bg-slate-800");
-            document.body.classList.add("bg-slate-400");
-        } else {
-            document.body.classList.add("bg-slate-800");
-            document.body.classList.remove("bg-slate-400");
-        }
-        setIsDarkMode(!isDarkMode);
-    }
+    useEffect(() => {
+      console.log(isDarkMode);
+      if (isDarkMode) {
+        document.body.classList.remove("bg-slate-800");
+        document.body.classList.add("bg-slate-400");
+      } else {
+        document.body.classList.add("bg-slate-800");
+        document.body.classList.remove("bg-slate-400");
+      }
+    }, [isDarkMode])
 
     return (
         <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>

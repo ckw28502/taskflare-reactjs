@@ -2,11 +2,11 @@ import { Box, Button, Typography } from "@mui/material";
 import { Formik } from "formik";
 import PropTypes from "prop-types";
 import { Form, Link } from "react-router-dom";
-import InputComponent from "./InputComponent";
-import PasswordComponent from "./PasswordComponent";
+import InputComponent from "../../../components/InputComponent";
+import PasswordComponent from "../../../components/PasswordComponent";
 import * as Yup from 'yup';
 import { useTheme } from "@emotion/react";
-
+import DarkModeSwitchComponent from "../../../components/DarkModeSwitchComponent";
 
 function LandingForm(props) {
     const theme = useTheme();
@@ -39,9 +39,9 @@ function LandingForm(props) {
             height: '100vh'
           }}>
             <Box sx={{
-              width: '50%',
               backgroundColor: containerColor,
               padding: '24px',
+              paddingX: "6%",
               maxHeight: '100vh',
               textAlign: 'center',
               borderRadius: '16px',
@@ -72,7 +72,7 @@ function LandingForm(props) {
                     <Button type="submit" variant="contained" name="button" id="button">{props.action}</Button>
                 </Form>
             </Formik>
-            <Link to={ link } className="mt-3">
+            <Link to={ link } className="my-3">
               <Typography variant="body2" sx={{
                 textDecoration: "underline",
                 color: linkColor.base,
@@ -83,6 +83,7 @@ function LandingForm(props) {
                 { linkText }
               </Typography>
             </Link>
+            <DarkModeSwitchComponent />
             </Box>
           </Box>
     )

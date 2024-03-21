@@ -2,7 +2,7 @@ import * as Yup from 'yup';
 import register from "../../services/auth/register"
 import toastify from "../../tools/toastify";
 import getError from "../../tools/error/error";
-import LandingForm from "../../components/LandingForm";
+import LandingForm from "./sections/LandingForm";
 
 
 function Register() {

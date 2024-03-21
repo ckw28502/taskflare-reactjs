@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 import login from "../../services/auth/login";
 import toastify from "../../tools/toastify";
 import getError from "../../tools/error/error";
-import LandingForm from "../../components/LandingForm";
+import LandingForm from "./sections/LandingForm";
 
 function Login() {
     const navigate = useNavigate();
