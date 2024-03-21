@@ -1,15 +1,9 @@
-import { useTheme } from "@emotion/react";
 import { Box, TextField } from "@mui/material";
 import { ErrorMessage, useField } from "formik"
 import PropTypes from "prop-types"
 
 function InputComponent(props) {
   const field = useField(props)[0];
-
-  const theme = useTheme();
-
-  console.log(theme.palette.mode);
-
   return (
     <Box sx={{
       pb: 3,

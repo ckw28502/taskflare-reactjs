@@ -1,15 +1,18 @@
 import { Box, Button, Typography } from "@mui/material";
-import { Formik } from "formik";
+import { Formik, Form } from "formik";
 import PropTypes from "prop-types";
-import { Form, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import InputComponent from "../../../components/InputComponent";
 import PasswordComponent from "../../../components/PasswordComponent";
 import * as Yup from 'yup';
 import { useTheme } from "@emotion/react";
 import DarkModeSwitchComponent from "../../../components/DarkModeSwitchComponent";
+import { useTranslation } from "react-i18next";
 
 function LandingForm(props) {
     const theme = useTheme();
+
+    const t = useTranslation()[0];
 
     let title;
     let link;
@@ -50,26 +53,26 @@ function LandingForm(props) {
               alignItems: 'center',
               p: 4
             }}>
-            <Typography variant="h4" sx={{ mb: 1 }}>{ title }</Typography>
+            <Typography variant="h4" sx={{ mb: 1 }}>{ t(title) }</Typography>
             <Formik
-                initialValues={props.initialValues}
-                validationSchema={validationSchema}
-                onSubmit={values => props.onSubmit(values)}
+                initialValues={ props.initialValues }
+                validationSchema={ validationSchema }
+                onSubmit={ values => props.onSubmit(values) }
             >
                 <Form className="place-self-center justify-self-center flex flex-col">
-                    <InputComponent type="text" name="email" label="Email Address" id="email"/>
-                    <PasswordComponent name="password" label="Password" id="password"/>
+                    <InputComponent type="text" name="email" label={ t("Email Address") } id="email"/>
+                    <PasswordComponent name="password" label={ t("Password") } id="password"/>
                     {
                       // If register, show confirmation password
                       props.action === "REGISTER" && (
                         <PasswordComponent
                           name="confirmation-password"
-                          label="Confirmation Password"
+                          label={ t("Confirmation Password") }
                           id="confirmation-password"
                         />
                       )
                     }
-                    <Button type="submit" variant="contained" name="button" id="button">{props.action}</Button>
+                    <Button type="submit" variant="contained" name="button" id="button">{ t(title) }</Button>
                 </Form>
             </Formik>
             <Link to={ link } className="my-3">
@@ -80,7 +83,7 @@ function LandingForm(props) {
                   color: linkColor.hover
                 }
               }}>
-                { linkText }
+                { t(linkText) }
               </Typography>
             </Link>
             <DarkModeSwitchComponent />

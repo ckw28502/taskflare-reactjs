@@ -28,7 +28,6 @@ function App() {
     const isDarkMode = useSelector(state => state.darkMode.isDarkMode);
 
     useEffect(() => {
-      console.log(isDarkMode);
       if (isDarkMode) {
         document.body.classList.remove("bg-slate-800");
         document.body.classList.add("bg-slate-400");
