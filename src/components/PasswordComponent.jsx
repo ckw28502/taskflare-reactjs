@@ -1,8 +1,9 @@
 import { useState } from "react"
 import PropTypes from "prop-types"
-import { ErrorMessage, useField } from "formik";
+import {  useField } from "formik";
 import { Box, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import ErrorMessageComponent from "./ErrorMessageComponent";
 
 export default function PasswordComponent(props) {
 
@@ -53,7 +54,7 @@ export default function PasswordComponent(props) {
           bottom: "0",
           width: "100%"
         }}>
-          <ErrorMessage name={props.name} component="div" className="text-red-500 text-sm" />
+          <ErrorMessageComponent targetName={props.name} />
         </Box>       
     </Box>
   )

@@ -10,17 +10,17 @@ describe("login page tests", () => {
   })
 
   it("should return error if field is empty", () => {
-    cy.get("#login-email").click()
-    cy.get("#login-password").click()
-    cy.get("#login-button").click()
+    cy.get("#text-email").click()
+    cy.get("#text-password").click()
+    cy.get("#button-submit").click()
 
     cy.contains("div","Email is required!")
     cy.contains("div","Password is required!")
   });
   
   it("should return error if email is invalid", () => {
-    cy.get("#login-email").type("user")
-    cy.get("#login-button").click()
+    cy.get("#text-email").type("user")
+    cy.get("#button-submit").click()
 
     cy.contains("div","Invalid email address!")
   });
@@ -30,9 +30,9 @@ describe("login page tests", () => {
         message: "EMAIL_NOT_FOUND"
     });
 
-    cy.get("#login-email").type(user.email)
-    cy.get("#login-password").type(user.password)
-    cy.get("#login-button").click()
+    cy.get("#text-email").type(user.email)
+    cy.get("#text-password").type(user.password)
+    cy.get("#button-submit").click()
 
     cy.contains("div","Email is not registered!")
   });
@@ -42,9 +42,9 @@ describe("login page tests", () => {
         message: "PASSWORD_INVALID"
     });
 
-    cy.get("#login-email").type(user.email)
-    cy.get("#login-password").type(user.password)
-    cy.get("#login-button").click()
+    cy.get("#text-email").type(user.email)
+    cy.get("#text-password").type(user.password)
+    cy.get("#button-submit").click()
 
     cy.contains("div","Password is invalid!")
   });
@@ -55,9 +55,9 @@ describe("login page tests", () => {
         refreshToken: "refresh token"
     });
 
-    cy.get("#login-email").type(user.email)
-    cy.get("#login-password").type(user.password)
-    cy.get("#login-button").click()
+    cy.get("#text-email").type(user.email)
+    cy.get("#text-password").type(user.password)
+    cy.get("#button-submit").click()
 
     cy.url().should("not.include", "/login");
   });

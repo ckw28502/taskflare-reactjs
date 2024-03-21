@@ -1,4 +1,4 @@
-class user {
+class User {
     #email;
 
     constructor(email){
@@ -10,4 +10,4 @@ class user {
     }
 }
 
-export default user;
+export default User;

@@ -1,9 +1,0 @@
-{
-    "CONFIRMATION_PASSWORD_REQUIRED": "Confirmation password field is required!",
-    "EMAIL_EXISTS": "Email already registered!",
-    "EMAIL_NOT_FOUND": "Email is not registered!",
-    "EMAIL_REQUIRED": "Email field is required!",
-    "EMAIL_INVALID": "Email is invalid!",
-    "PASSWORD_INVALID": "Password is invalid!",
-    "PASSWORD_REQUIRED": "Password field is required!"
-}

@@ -1,17 +1,15 @@
 import * as Yup from 'yup';
 import register from "../../services/auth/register"
 import toastify from "../../tools/toastify";
-import getError from "../../tools/error/error";
+import getError from "../../tools/error";
 import LandingForm from "./sections/LandingForm";
 
-
 function Register() {
-
     const validationSchema = {
-        email: Yup.string().email("Invalid email address!").required("Email is required!"),
-        password: Yup.string().required("Password is required!"),
-        confirmationPassword: Yup.string().required("Confirmation password is required!")
-        .oneOf([Yup.ref("password"), null], "Passwords must match!")
+        email: Yup.string().email("EMAIL_INVALID").required("EMAIL_REQUIRED"),
+        password: Yup.string().required("PASSWORD_REQUIRED"),
+        confirmationPassword: Yup.string().required("CONFIRMATION_PASSWORD_REQUIRED")
+        .oneOf([Yup.ref("password"), null], "PASSWORD_MISSMATCH")
     };
 
     function onSubmit(values) {

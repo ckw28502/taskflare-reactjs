@@ -2,15 +2,15 @@ import { useNavigate } from "react-router-dom";
 import * as Yup from 'yup';
 import login from "../../services/auth/login";
 import toastify from "../../tools/toastify";
-import getError from "../../tools/error/error";
+import getError from "../../tools/error";
 import LandingForm from "./sections/LandingForm";
 
 function Login() {
     const navigate = useNavigate();
 
     const validationSchema = {
-        email: Yup.string().email('Invalid email address!').required('Email is required!'),
-        password: Yup.string().required('Password is required!')
+        email: Yup.string().email("EMAIL_INVALID").required("EMAIL_REQUIRED"),
+        password: Yup.string().required("PASSWORD_REQUIRED")
     }
 
     function onSubmit(values) {
