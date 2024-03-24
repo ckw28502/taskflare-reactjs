@@ -72,7 +72,6 @@ function LandingForm(props) {
                           name="confirmationPassword"
                           label={ t("Confirmation Password") }
                           id="text-confirmation-password"
-                          isValidated
                         />
                       )
                     }

@@ -14,15 +14,15 @@ describe("login page tests", () => {
     cy.get("#text-password").click()
     cy.get("#button-submit").click()
 
-    cy.contains("div","Email is required!")
-    cy.contains("div","Password is required!")
+    cy.contains("div","Email field is required!")
+    cy.contains("div","Password field is required")
   });
   
   it("should return error if email is invalid", () => {
     cy.get("#text-email").type("user")
     cy.get("#button-submit").click()
 
-    cy.contains("div","Invalid email address!")
+    cy.contains("div","Email is invalid!")
   });
 
   it("should return error if email is not registered", () => {

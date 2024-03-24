@@ -4,13 +4,16 @@ import login from "../../services/auth/login";
 import toastify from "../../tools/toastify";
 import getError from "../../tools/error";
 import LandingForm from "./sections/LandingForm";
+import { useTranslation } from "react-i18next";
 
 function Login() {
     const navigate = useNavigate();
 
+    const { t } = useTranslation();
+
     const validationSchema = {
-        email: Yup.string().email("EMAIL_INVALID").required("EMAIL_REQUIRED"),
-        password: Yup.string().required("PASSWORD_REQUIRED")
+        email: Yup.string().email(t("EMAIL_INVALID")).required(t("EMAIL_REQUIRED")),
+        password: Yup.string().required(t("PASSWORD_REQUIRED"))
     }
 
     function onSubmit(values) {

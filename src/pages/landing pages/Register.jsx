@@ -3,13 +3,16 @@ import register from "../../services/auth/register"
 import toastify from "../../tools/toastify";
 import getError from "../../tools/error";
 import LandingForm from "./sections/LandingForm";
+import { useTranslation } from 'react-i18next';
 
 function Register() {
+    const { t } = useTranslation();
+
     const validationSchema = {
-        email: Yup.string().email("EMAIL_INVALID").required("EMAIL_REQUIRED"),
-        password: Yup.string().required("PASSWORD_REQUIRED"),
-        confirmationPassword: Yup.string().required("CONFIRMATION_PASSWORD_REQUIRED")
-        .oneOf([Yup.ref("password"), null], "PASSWORD_MISSMATCH")
+        email: Yup.string().email(t("EMAIL_INVALID")).required(t("EMAIL_REQUIRED")),
+        password: Yup.string().required(t("PASSWORD_REQUIRED")),
+        confirmationPassword: Yup.string().required(t("CONFIRMATION_PASSWORD_REQUIRED"))
+        .oneOf([Yup.ref("password"), null], t("PASSWORD_MISSMATCH"))
     };
 
     function onSubmit(values) {
