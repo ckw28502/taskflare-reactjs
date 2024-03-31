@@ -2,7 +2,7 @@ import * as Yup from 'yup';
 import register from "../../services/auth/register"
 import toastify from "../../tools/toastify";
 import getError from "../../tools/error";
-import LandingForm from "./sections/LandingForm";
+import LandingForm from "./layouts/LandingForm";
 import { useTranslation } from 'react-i18next';
 
 function Register() {

@@ -1,14 +1,14 @@
 import { Box, Button, Typography } from "@mui/material";
 import { Formik, Form } from "formik";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import InputComponent from "../../../components/InputComponent";
-import PasswordComponent from "../../../components/PasswordComponent";
+import InputComponent from "../../../components/inputs/InputComponent";
+import PasswordComponent from "../../../components/inputs/PasswordComponent";
 import * as Yup from 'yup';
 import { useTheme } from "@emotion/react";
 import DarkModeSwitchComponent from "../../../components/DarkModeSwitchComponent";
 import { useTranslation } from "react-i18next";
 import LanguageSelectComponent from "../../../components/LanguageSelectComponent";
+import { func, object, string } from "prop-types";
 
 function LandingForm(props) {
     const theme = useTheme();
@@ -55,7 +55,13 @@ function LandingForm(props) {
               p: 4,
               position: "relative"
             }}>
-            <LanguageSelectComponent/>
+            <Box sx={{
+                alignSelf: "end",
+                position: "absolute",
+                right: "2%"
+            }}>
+              <LanguageSelectComponent />
+            </Box>
             <Typography variant="h4" sx={{ mb: 1 }}>{ t(title) }</Typography>
             <Formik
                 initialValues={ props.initialValues }
@@ -102,10 +108,10 @@ function LandingForm(props) {
 }
 
 LandingForm.propTypes = {
-    validationSchema: PropTypes.object.isRequired,
-    action: PropTypes.string.isRequired,
-    onSubmit: PropTypes.func.isRequired,
-    initialValues: PropTypes.object.isRequired
+    validationSchema: object.isRequired,
+    action: string.isRequired,
+    onSubmit: func.isRequired,
+    initialValues: object.isRequired
 };
     
 export default LandingForm;

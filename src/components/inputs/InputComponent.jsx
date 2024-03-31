@@ -1,7 +1,7 @@
 import { Box, TextField } from "@mui/material";
 import { useField } from "formik"
-import PropTypes from "prop-types"
-import ErrorMessageComponent from "./ErrorMessageComponent";
+import ErrorMessageComponent from "../ErrorMessageComponent";
+import { func, string } from "prop-types";
 
 function InputComponent(props) {
   const field = useField(props)[0];
@@ -28,12 +28,12 @@ function InputComponent(props) {
 }
 
 InputComponent.propTypes = {
-    getValue: PropTypes.func,
-    type: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    value: PropTypes.string,
-    id: PropTypes.string.isRequired
+    getValue: func,
+    type: string.isRequired,
+    label: string.isRequired,
+    name: string.isRequired,
+    value: string,
+    id: string.isRequired
 }
 
 export default InputComponent;

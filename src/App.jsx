@@ -8,6 +8,7 @@ import lightTheme from "./mui/theme/light";
 import darkTheme from "./mui/theme/dark";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import Dashboard from "./pages/main/Dashboard";
 
 function App() {
     const router = createBrowserRouter([
@@ -18,6 +19,10 @@ function App() {
         {
           path: "/register",
           element: <Register />
+        },
+        {
+          path: "/",
+          element: <Dashboard />
         },
         {
           path: "*",

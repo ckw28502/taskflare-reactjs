@@ -17,11 +17,7 @@ function LanguageSelectComponent() {
     </MenuItem>
     )
     return(
-        <FormControl sx={{
-            alignSelf: "end",
-            position: "absolute",
-            right: "2%"
-        }}>
+        <FormControl>
             <Select
                 id="select-language"
                 value={ i18n.language }

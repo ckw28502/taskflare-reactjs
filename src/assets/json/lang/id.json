@@ -14,5 +14,11 @@
         "PASSWORD_INVALID": "Kata sandi salah!",
         "PASSWORD_MISSMATCH": "Kata sandi dan kata sandi konfirmasi berbeda!",
         "PASSWORD_REQUIRED": "Kata sandi wajib diisi!"
+    },
+    "sidebar": {
+        "DASHBOARD": "Dasbor",
+        "PROJECT": "Proyek",
+        "PROJECT_CREATE": "Buat Proyek",
+        "PROJECT_LIST": "Daftar Proyek"
     }
 }

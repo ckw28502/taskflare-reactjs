@@ -1,6 +1,6 @@
 import { ErrorMessage } from "formik";
 import { useTranslation } from "react-i18next";
-import PropTypes from "prop-types"
+import { string } from "prop-types"
 import { useEffect, useState } from "react";
 
 
@@ -23,7 +23,7 @@ function ErrorMessageComponent(props){
 }
 
 ErrorMessageComponent.propTypes = {
-    targetName: PropTypes.string.isRequired
+    targetName: string.isRequired
 }
 
 export default ErrorMessageComponent;

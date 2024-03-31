@@ -1,9 +1,9 @@
 import { useState } from "react"
-import PropTypes from "prop-types"
 import {  useField } from "formik";
 import { Box, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import ErrorMessageComponent from "./ErrorMessageComponent";
+import ErrorMessageComponent from "../ErrorMessageComponent";
+import { string } from "prop-types";
 
 export default function PasswordComponent(props) {
 
@@ -61,8 +61,8 @@ export default function PasswordComponent(props) {
 }
 
 PasswordComponent.propTypes = {
-    label: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    value: PropTypes.string,
-    id: PropTypes.string.isRequired
+    label: string.isRequired,
+    name: string.isRequired,
+    value: string,
+    id: string.isRequired
 }

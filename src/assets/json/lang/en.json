@@ -14,5 +14,11 @@
         "PASSWORD_INVALID": "Password is invalid!",
         "PASSWORD_MISSMATCH": "Password and confirmation password are different!",
         "PASSWORD_REQUIRED": "Password field is required!"
+    },
+    "sidebar": {
+        "DASHBOARD": "Dashboard",
+        "PROJECT": "Project",
+        "PROJECT_CREATE": "Create Project",
+        "PROJECT_LIST": "Project List"
     }
 }
