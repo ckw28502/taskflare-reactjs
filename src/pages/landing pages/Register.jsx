@@ -10,6 +10,7 @@ function Register() {
 
     const validationSchema = {
         email: Yup.string().email(t("EMAIL_INVALID")).required(t("EMAIL_REQUIRED")),
+        name: Yup.string().required(t("NAME_REQUIRED")),
         password: Yup.string().required(t("PASSWORD_REQUIRED")),
         confirmationPassword: Yup.string().required(t("CONFIRMATION_PASSWORD_REQUIRED"))
         .oneOf([Yup.ref("password"), null], t("PASSWORD_MISSMATCH"))
@@ -31,6 +32,7 @@ function Register() {
             onSubmit={onSubmit}
             initialValues={{
                 email: "",
+                name: "",
                 password: "",
                 confirmationPassword: ""
             }}

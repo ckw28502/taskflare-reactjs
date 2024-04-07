@@ -6,7 +6,8 @@ describe("login page tests", () => {
   })
 
   before(async() => {
-    user = await cy.fixture("auth/login.json");
+    const userData = await cy.fixture("users.json");
+    user = userData.user;
   })
 
   it("should return error if field is empty", () => {

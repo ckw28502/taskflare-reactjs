@@ -36,74 +36,87 @@ function LandingForm(props) {
     const validationSchema = Yup.object().shape(props.validationSchema);
     return(
         <Box sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            width: '100vw',
-            height: '100vh'
-          }}>
+          marginTop: "2%"
+        }}>
             <Box sx={{
-              backgroundColor: containerColor,
-              padding: '10px',
-              minWidth: "30%",
-              maxHeight: '100vh',
-              textAlign: 'center',
-              borderRadius: '16px',
               display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              p: 4,
-              position: "relative"
+              justifyContent: 'center',
+              width: '100vw',
+              minHeight: '10vh'
             }}>
-            <Box sx={{
-                alignSelf: "end",
-                position: "absolute",
-                right: "2%"
-            }}>
-              <LanguageSelectComponent />
-            </Box>
-            <Typography variant="h4" sx={{ mb: 1 }}>{ t(title) }</Typography>
-            <Formik
-                initialValues={ props.initialValues }
-                validationSchema={ validationSchema }
-                onSubmit={ values => props.onSubmit(values) }
-            >
-                <Form className="place-self-center justify-self-center flex flex-col mt-10 w-full">
-                    <InputComponent type="text" name="email" label={ t("Email Address") } id="text-email"/>
-                    <PasswordComponent name="password" label={ t("Password") } id="text-password"/>
-                    {
-                      // If register, show confirmation password
-                      props.action === "REGISTER" && (
-                        <PasswordComponent
-                          name="confirmationPassword"
-                          label={ t("Confirmation Password") }
-                          id="text-confirmation-password"
-                        />
-                      )
-                    }
-                    <Button type="submit" variant="contained" name="button" id="button-submit"sx={{
-                        marginY: 2,
-                        paddingY: "3%",
-                        fontSize: "16px"
-                      }}>
-                        { t(title) }
-                      </Button>
-                </Form>
-            </Formik>
-            <Link to={ link } className="my-3">
-              <Typography variant="body2" sx={{
-                textDecoration: "underline",
-                color: linkColor.base,
-                "&:hover": {
-                  color: linkColor.hover
-                }
+              <Box sx={{
+                backgroundColor: containerColor,
+                padding: '10px',
+                minWidth: "30%",
+                maxHeight: '100vh',
+                textAlign: 'center',
+                borderRadius: '16px',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                p: 4,
+                position: "relative"
               }}>
-                { t(linkText) }
-              </Typography>
-            </Link>
-            <DarkModeSwitchComponent />
-            </Box>
+              <Box sx={{
+                  alignSelf: "end",
+                  position: "absolute",
+                  right: "2%"
+              }}>
+                <LanguageSelectComponent />
+              </Box>
+              <Typography variant="h4" sx={{ mb: 1 }}>{ t(title) }</Typography>
+              <Formik
+                  initialValues={ props.initialValues }
+                  validationSchema={ validationSchema }
+                  onSubmit={ values => props.onSubmit(values) }
+              >
+                  <Form className="place-self-center justify-self-center flex flex-col mt-10 w-full">
+                      <InputComponent type="text" name="email" label={ t("EMAIL_ADDRESS") } id="text-email"/>
+                      {
+                        // If register, show name
+                        props.action === "REGISTER" && (
+                          <InputComponent
+                            name="name"
+                            label={ t("NAME") }
+                            id="text-name"
+                          />
+                        )
+                      }
+                      <PasswordComponent name="password" label={ t("PASSWORD") } id="text-password"/>
+                      {
+                        // If register, show confirmation password
+                        props.action === "REGISTER" && (
+                          <PasswordComponent
+                            name="confirmationPassword"
+                            label={ t("CONFIRMATION_PASSWORD") }
+                            id="text-confirmation-password"
+                          />
+                        )
+                      }
+                      <Button type="submit" variant="contained" name="button" id="button-submit"sx={{
+                          marginY: 2,
+                          paddingY: "3%",
+                          fontSize: "16px"
+                        }}>
+                          { t(title) }
+                        </Button>
+                  </Form>
+              </Formik>
+              <Link to={ link } className="my-3">
+                <Typography variant="body2" sx={{
+                  textDecoration: "underline",
+                  color: linkColor.base,
+                  "&:hover": {
+                    color: linkColor.hover
+                  }
+                }}>
+                  { t(linkText) }
+                </Typography>
+              </Link>
+              <DarkModeSwitchComponent />
+              </Box>
           </Box>
+        </Box>
     )
 }
 

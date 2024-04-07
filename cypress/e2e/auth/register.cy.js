@@ -7,16 +7,19 @@ describe("register page tests", () => {
   })
 
   before(async() => {
-    user = await cy.fixture("auth/register.json");
+    const userData = await cy.fixture("users.json");
+    user = userData.user;
+
   })
 
   it("should show error message if input is empty!", () => {
     cy.get("#text-email").click()
+    cy.get("#text-name").click()
     cy.get("#text-password").click()
     cy.get("#text-confirmation-password").click()
     cy.get("#button-submit").click()
     
-    cy.contains("div","Email field is required!")
+    cy.contains("div","Name field is required!")
     cy.contains("div","Password field is required")
     cy.contains("div","Confirmation password field is required")
   })
@@ -30,6 +33,7 @@ describe("register page tests", () => {
 
   it("should show error message if password and confirmation password missmatch!", async() => {
     cy.get("#text-email").type(user.email)
+    cy.get("#text-name").type(user.name)
     cy.get("#text-password").type(user.password)
     cy.get("#text-confirmation-password").type("useer")
     cy.get("#button-submit").click()
@@ -43,6 +47,7 @@ describe("register page tests", () => {
     })
 
     cy.get("#text-email").type(user.email)
+    cy.get("#text-name").type(user.name)
     cy.get("#text-password").type(user.password)
     cy.get("#text-confirmation-password").type(user.confirmationPassword)
     cy.get("#button-submit").click()
@@ -54,6 +59,7 @@ describe("register page tests", () => {
     cy.mockServerRequest("POST", "/register", 201, {})
 
     cy.get("#text-email").type(user.email)
+    cy.get("#text-name").type(user.name)
     cy.get("#text-password").type(user.password)
     cy.get("#text-confirmation-password").type(user.confirmationPassword)
     cy.get("#button-submit").click()
