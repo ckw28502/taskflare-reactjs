@@ -53,7 +53,6 @@ function LandingForm(props) {
                 borderRadius: '16px',
                 display: 'flex',
                 flexDirection: 'column',
-                alignItems: 'center',
                 p: 4,
                 position: "relative"
               }}>
@@ -70,26 +69,34 @@ function LandingForm(props) {
                   validationSchema={ validationSchema }
                   onSubmit={ values => props.onSubmit(values) }
               >
-                  <Form className="place-self-center justify-self-center flex flex-col mt-10 w-full">
+                  <Form>
+                      <Box sx={{
+                        justifySelf: 'center',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        marginTop: 2,
+                        width: '100%'
+                      }}>
                       <InputComponent type="text" name="email" label={ t("EMAIL_ADDRESS") } id="text-email"/>
                       {
                         // If register, show name
                         props.action === "REGISTER" && (
                           <InputComponent
+                            type="text"
                             name="name"
                             label={ t("NAME") }
                             id="text-name"
                           />
                         )
                       }
-                      <PasswordComponent name="password" label={ t("PASSWORD") } id="text-password"/>
+                      <PasswordComponent name="password" label={ t("PASSWORD") } id="pass-password"/>
                       {
                         // If register, show confirmation password
                         props.action === "REGISTER" && (
                           <PasswordComponent
                             name="confirmationPassword"
                             label={ t("CONFIRMATION_PASSWORD") }
-                            id="text-confirmation-password"
+                            id="pass-confirmation-password"
                           />
                         )
                       }
@@ -100,6 +107,7 @@ function LandingForm(props) {
                         }}>
                           { t(title) }
                         </Button>
+                      </Box>
                   </Form>
               </Formik>
               <Link to={ link } className="my-3">
@@ -113,7 +121,12 @@ function LandingForm(props) {
                   { t(linkText) }
                 </Typography>
               </Link>
-              <DarkModeSwitchComponent />
+              <Box sx={{
+                display: "flex",
+                justifyContent: "center"
+              }}>
+                <DarkModeSwitchComponent />
+              </Box>
               </Box>
           </Box>
         </Box>

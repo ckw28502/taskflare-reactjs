@@ -15,8 +15,8 @@ describe("register page tests", () => {
   it("should show error message if input is empty!", () => {
     cy.get("#text-email").click()
     cy.get("#text-name").click()
-    cy.get("#text-password").click()
-    cy.get("#text-confirmation-password").click()
+    cy.get("#pass-password").click()
+    cy.get("#pass-confirmation-password").click()
     cy.get("#button-submit").click()
     
     cy.contains("div","Name field is required!")
@@ -34,8 +34,8 @@ describe("register page tests", () => {
   it("should show error message if password and confirmation password missmatch!", async() => {
     cy.get("#text-email").type(user.email)
     cy.get("#text-name").type(user.name)
-    cy.get("#text-password").type(user.password)
-    cy.get("#text-confirmation-password").type("useer")
+    cy.get("#pass-password").type(user.password)
+    cy.get("#pass-confirmation-password").type("useer")
     cy.get("#button-submit").click()
 
     cy.contains("div","Password and confirmation password are different!")
@@ -48,8 +48,8 @@ describe("register page tests", () => {
 
     cy.get("#text-email").type(user.email)
     cy.get("#text-name").type(user.name)
-    cy.get("#text-password").type(user.password)
-    cy.get("#text-confirmation-password").type(user.confirmationPassword)
+    cy.get("#pass-password").type(user.password)
+    cy.get("#pass-confirmation-password").type(user.confirmationPassword)
     cy.get("#button-submit").click()
 
     cy.contains("div", "Email is registered!")
@@ -60,8 +60,8 @@ describe("register page tests", () => {
 
     cy.get("#text-email").type(user.email)
     cy.get("#text-name").type(user.name)
-    cy.get("#text-password").type(user.password)
-    cy.get("#text-confirmation-password").type(user.confirmationPassword)
+    cy.get("#pass-password").type(user.password)
+    cy.get("#pass-confirmation-password").type(user.confirmationPassword)
     cy.get("#button-submit").click()
 
     cy.contains("div", "You are registered now!")

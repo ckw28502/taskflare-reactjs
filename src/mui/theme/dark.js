@@ -3,6 +3,7 @@ import { createTheme } from "@mui/material";
 const darkTheme = createTheme({
     palette: {
         mode: "dark",
+        border: "white",
         container: "#404040",
         link: {
             base: "#42a5f5",

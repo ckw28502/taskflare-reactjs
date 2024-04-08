@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import * as Yup from 'yup';
-import login from "../../services/auth/login";
+import login from "../../services/auth/loginService";
 import toastify from "../../tools/toastify";
 import getError from "../../tools/error";
 import LandingForm from "./layouts/LandingForm";
@@ -24,6 +24,7 @@ function Login() {
             navigate("/");
         })
         .catch(res => {
+            console.log(res);
             const message = getError(res.response.data.message);
             toastify.error(message);
         })

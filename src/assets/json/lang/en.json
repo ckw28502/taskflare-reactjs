@@ -1,12 +1,18 @@
 {
     "CONFIRMATION_PASSWORD": "Confirmation Password",
+    "CREATE_PROJECT": "Create Project",
+    "DEADLINE": "Deadline",
+    "DESCRIPTION": "Description",
     "EMAIL_ADDRESS": "Email Address",
     "NAME": "Name",
     "PASSWORD": "Password",
     "SIGN IN": "SIGN IN",
     "SIGN UP": "SIGN UP",
+    "TITLE": "Title",
     "errors": {
         "CONFIRMATION_PASSWORD_REQUIRED": "Confirmation password field is required!",
+        "DEADLINE_INVALID": "Deadline field is invalid!",
+        "DESCRIPTION_REQUIRED": "Description field is required!",
         "EMAIL_EXISTS": "Email already registered!",
         "EMAIL_NOT_FOUND": "Email is not registered!",
         "EMAIL_REQUIRED": "Email field is required!",
@@ -15,12 +21,15 @@
         "NAME_REQUIRED": "Name field is required!",
         "PASSWORD_INVALID": "Password is invalid!",
         "PASSWORD_MISSMATCH": "Password and confirmation password are different!",
-        "PASSWORD_REQUIRED": "Password field is required!"
+        "PASSWORD_REQUIRED": "Password field is required!",
+        "TITLE_REQUIRED": "Title field is required!"
     },
     "sidebar": {
-        "DASHBOARD": "Dashboard",
-        "PROJECT": "Project",
-        "PROJECT_CREATE": "Create Project",
-        "PROJECT_LIST": "Project List"
+        "HELP": "Help",
+        "PROJECTS": "Projects",
+        "SETTINGS": "Settings"
+    },
+    "success": {
+        "REGISTER": "You are registered now!"
     }
 }

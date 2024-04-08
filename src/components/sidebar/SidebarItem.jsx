@@ -1,6 +1,7 @@
 import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import { arrayOf, object } from "prop-types";
 import { useCallback, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function SidebarItem({ items }) {
 
@@ -10,7 +11,7 @@ function SidebarItem({ items }) {
         setListItems(items.map((item, index) => {
             return (
                 <ListItem key={index}>
-                    <ListItemButton>
+                    <ListItemButton component={Link} to={item.href}>
                         <ListItemIcon>{item.icon}</ListItemIcon>
                         <ListItemText primary={item.text} />
                     </ListItemButton>

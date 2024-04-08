@@ -12,7 +12,7 @@ describe("login page tests", () => {
 
   it("should return error if field is empty", () => {
     cy.get("#text-email").click()
-    cy.get("#text-password").click()
+    cy.get("#pass-password").click()
     cy.get("#button-submit").click()
 
     cy.contains("div","Email field is required!")
@@ -32,7 +32,7 @@ describe("login page tests", () => {
     });
 
     cy.get("#text-email").type(user.email)
-    cy.get("#text-password").type(user.password)
+    cy.get("#pass-password").type(user.password)
     cy.get("#button-submit").click()
 
     cy.contains("div","Email is not registered!")
@@ -44,7 +44,7 @@ describe("login page tests", () => {
     });
 
     cy.get("#text-email").type(user.email)
-    cy.get("#text-password").type(user.password)
+    cy.get("#pass-password").type(user.password)
     cy.get("#button-submit").click()
 
     cy.contains("div","Password is invalid!")
@@ -57,7 +57,7 @@ describe("login page tests", () => {
     });
 
     cy.get("#text-email").type(user.email)
-    cy.get("#text-password").type(user.password)
+    cy.get("#pass-password").type(user.password)
     cy.get("#button-submit").click()
 
     cy.url().should("not.include", "/login");

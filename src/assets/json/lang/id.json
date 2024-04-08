@@ -1,12 +1,18 @@
 {
     "CONFIRMATION_PASSWORD": "Kata Sandi Konfirmasi",
+    "CREATE_PROJECT": "Buat Proyek",
+    "DEADLINE": "Batas Waktu",
+    "DESCRIPTION": "Deskripsi",
     "EMAIL_ADDRESS": "Alamat email",
     "NAME": "Nama",
     "PASSWORD": "Kata Sandi",
     "SIGN IN": "MASUK",
     "SIGN UP": "DAFTAR",
+    "TITLE": "Judul",
     "errors": {
         "CONFIRMATION_PASSWORD_REQUIRED": "Kata sandi konfirmasi wajib diisi!",
+        "DEADLINE_INVALID": "Batas waktu tidak valid!",
+        "DESCRIPTION_REQUIRED": "Deskripsi wajib diisi!",
         "EMAIL_EXISTS": "Alamat email ini sudah terdaftar!",
         "EMAIL_NOT_FOUND": "Alamat email tidak ditemukan!",
         "EMAIL_REQUIRED": "Alamat email wajib diisi!",
@@ -15,12 +21,15 @@
         "NAME_REQUIRED": "Nama wajib diisi!",
         "PASSWORD_INVALID": "Kata sandi salah!",
         "PASSWORD_MISSMATCH": "Kata sandi dan kata sandi konfirmasi berbeda!",
-        "PASSWORD_REQUIRED": "Kata sandi wajib diisi!"
+        "PASSWORD_REQUIRED": "Kata sandi wajib diisi!",
+        "TITLE_REQUIRED": "Judul wajib diisi!"
     },
     "sidebar": {
-        "DASHBOARD": "Dasbor",
-        "PROJECT": "Proyek",
-        "PROJECT_CREATE": "Buat Proyek",
-        "PROJECT_LIST": "Daftar Proyek"
+        "HELP": "Bantuan",
+        "PROJECTS": "Proyek",
+        "SETTINGS": "Pengaturan"
+    }, 
+    "success": {
+        "REGISTER": "Pendaftaran akun berhasil!"
     }
 }

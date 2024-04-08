@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import register from "../../services/auth/register"
+import register from "../../services/auth/registerService"
 import toastify from "../../tools/toastify";
 import getError from "../../tools/error";
 import LandingForm from "./layouts/LandingForm";
@@ -18,7 +18,7 @@ function Register() {
 
     function onSubmit(values) {
         register(values)
-        .then(() => toastify.success("You are registered now!"))
+        .then(() => toastify.success(t("success.REGISTER")))
         .catch(res => {
             const message = getError(res.response.data.message);
             toastify.error(message);

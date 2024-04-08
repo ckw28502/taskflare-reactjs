@@ -8,7 +8,7 @@ import lightTheme from "./mui/theme/light";
 import darkTheme from "./mui/theme/dark";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import Dashboard from "./pages/main/Dashboard";
+import Projects from "./pages/main/Projects";
 
 function App() {
     const router = createBrowserRouter([
@@ -22,7 +22,7 @@ function App() {
         },
         {
           path: "/",
-          element: <Dashboard />
+          element: <Projects />
         },
         {
           path: "*",
@@ -34,11 +34,11 @@ function App() {
 
     useEffect(() => {
       if (isDarkMode) {
-        document.body.classList.remove("bg-slate-800");
-        document.body.classList.add("bg-slate-400");
-      } else {
-        document.body.classList.add("bg-slate-800");
         document.body.classList.remove("bg-slate-400");
+        document.body.classList.add("bg-slate-800");
+      } else {
+        document.body.classList.add("bg-slate-400");
+        document.body.classList.remove("bg-slate-800");
       }
     }, [isDarkMode])
 

@@ -1,5 +1,6 @@
 class User {
     #email;
+    #name;
 
     constructor(email){
         this.#email = email;
@@ -7,6 +8,10 @@ class User {
 
     getEmail() {
         return this.#email;
+    }
+    
+    getName() {
+        return this.#name;
     }
 }
 

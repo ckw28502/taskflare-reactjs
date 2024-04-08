@@ -13,7 +13,7 @@ function LanguageSelectComponent() {
     const items = flags.map((flag, index) => 
     <MenuItem key={ index } value={ flag.language } sx={{
     }}>
-        <Flag code={ flag.country } className="w-full h-5" />
+        <Flag alt={flag.language} code={ flag.country } className="w-full h-5" />
     </MenuItem>
     )
     return(
