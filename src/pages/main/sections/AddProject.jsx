@@ -71,7 +71,7 @@ const AddProject = forwardRef(function AddProject(props, ref) {
                                     value={null} 
                                     onChange={value => setFieldValue("deadline", value, true)}
                                 />
-                                <Button type="submit" variant="contained" sx={{
+                                <Button type="submit" id="btn-submit" variant="contained" sx={{
                                     marginTop: 3,
                                     py: 1
                                 }}>{t("SUBMIT")}</Button>

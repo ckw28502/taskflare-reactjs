@@ -6,8 +6,12 @@ import ModalComponent from "../../components/modals/ModalComponent";
 import { useTheme } from "@emotion/react";
 import AddProject from "./sections/AddProject";
 import projectServices from "../../services/projectServices";
+import { useNavigate } from "react-router-dom";
+
 
 function Projects() {
+
+    const navigate = useNavigate();
 
     const [projects, setProjects] = useState([]);
 
@@ -31,10 +35,11 @@ function Projects() {
             request.deadline = values.deadline;
         }
 
-        console.log(request);
+        const newProjectId = await projectServices.createProject(request)
+            .then(data => data.projectId);
 
-        const newProject = await projectServices.createProject(request);
-        console.log(newProject);
+        navigate(`/${newProjectId}`);
+
     }
     
     return(
@@ -43,7 +48,7 @@ function Projects() {
                 display: "flex",
                 flexDirection: "column"
             }}>
-                <Button variant="contained" onClick={openModal} sx={{ 
+                <Button id="btn-add" variant="contained" onClick={openModal} sx={{ 
                     alignSelf: "start",
                     marginTop: "5%",
                     padding: "10px"

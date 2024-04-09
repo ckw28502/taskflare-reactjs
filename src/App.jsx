@@ -9,6 +9,7 @@ import darkTheme from "./mui/theme/dark";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import Projects from "./pages/main/Projects";
+import Project from "./pages/main/Project";
 
 function App() {
     const router = createBrowserRouter([
@@ -23,6 +24,10 @@ function App() {
         {
           path: "/",
           element: <Projects />
+        },
+        {
+          path: "/:projectId",
+          element: <Project />
         },
         {
           path: "*",
