@@ -1,20 +1,13 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import Container from "./layout/Container";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import AddIcon from '@mui/icons-material/Add';
 import ModalComponent from "../../components/modals/ModalComponent";
-import { useTheme } from "@emotion/react";
 import AddProject from "./sections/AddProject";
-import projectServices from "../../services/projectServices";
-import { useNavigate } from "react-router-dom";
+import GetAllProjects from "./sections/GetAllProjects";
 
 
 function Projects() {
-
-    const navigate = useNavigate();
-
-    const [projects, setProjects] = useState([]);
-
     const [open, setOpen] = useState(false);
 
     function openModal() {
@@ -23,23 +16,6 @@ function Projects() {
 
     function handleModalClose() {
         setOpen(false);
-    }
-
-    async function addProject(values) {
-        const request = {
-            title: values.title,
-            description: values.description
-        };
-
-        if (values.deadline) {
-            request.deadline = values.deadline;
-        }
-
-        const newProjectId = await projectServices.createProject(request)
-            .then(data => data.projectId);
-
-        navigate(`/${newProjectId}`);
-
     }
     
     return(
@@ -51,12 +27,14 @@ function Projects() {
                 <Button id="btn-add" variant="contained" onClick={openModal} sx={{ 
                     alignSelf: "start",
                     marginTop: "5%",
+                    marginBottom: "2%",
                     padding: "10px"
                 }}>
                     <AddIcon />
                 </Button>
+                <GetAllProjects />
                 <ModalComponent isOpen={open} handleClose={() => handleModalClose()}>
-                    <AddProject onSubmit={addProject} />
+                    <AddProject />
                 </ModalComponent>
             </Box>
         </Container>

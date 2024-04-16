@@ -7,7 +7,7 @@ export default defineConfig({
     },
   },
   env:{
-    base_url: "http://localhost:4173",
+    base_url: "http://localhost:5173",
     server_url: "http://localhost:3000"
   }
 });

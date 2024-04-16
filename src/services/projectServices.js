@@ -7,6 +7,12 @@ async function createProject(values) {
         .then(response => response.data);
 }
 
+async function getAllProjects() {
+    return axiosInstance.get(baseURL)
+        .then(response => response.data);
+}
+
 export default {
-    createProject
+    createProject,
+    getAllProjects
 };

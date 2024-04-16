@@ -1,15 +1,18 @@
 import { useTheme } from "@emotion/react";
 import { Box, Button, Typography } from "@mui/material";
 import { Form, Formik } from "formik";
-import { func } from "prop-types";
 import { useTranslation } from "react-i18next";
 import * as Yup from "yup";
 import InputComponent from "../../../components/inputs/InputComponent";
 import { forwardRef } from "react";
 import dayjs from "dayjs";
 import DatePickerComponent from "../../../components/inputs/DatePickerComponent";
+import projectServices from "../../../services/projectServices";
+import { useNavigate } from "react-router-dom";
 
 const AddProject = forwardRef(function AddProject(props, ref) {
+    const navigate = useNavigate();
+
     const theme = useTheme();
 
     const { t } = useTranslation();
@@ -30,6 +33,24 @@ const AddProject = forwardRef(function AddProject(props, ref) {
         description: Yup.string().required(t("DESCRIPTION_REQUIRED")),
         deadline: Yup.date().nullable().min(tomorrow, t("DEADLINE_INVALID"))
     });
+
+    async function addProject(values) {
+        const request = {
+            title: values.title,
+            description: values.description
+        };
+
+        if (values.deadline) {
+            request.deadline = values.deadline;
+        }
+
+        const newProjectId = await projectServices.createProject(request)
+            .then(data => data.projectId);
+
+        navigate(`/${newProjectId}`);
+    }
+    
+
     return (
         <Box sx={{
             backgroundColor: containerColor,
@@ -46,7 +67,7 @@ const AddProject = forwardRef(function AddProject(props, ref) {
             <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
-                onSubmit={(values) => props.onSubmit(values)}
+                onSubmit={async(values) => await addProject(values)}
             >
                 {({ setFieldValue }) => (
                         <Form ref={ref} sx={{
@@ -82,9 +103,5 @@ const AddProject = forwardRef(function AddProject(props, ref) {
         </Box>
     )
 })
-
-AddProject.propTypes = {
-    onSubmit: func.isRequired
-}
 
 export default AddProject;

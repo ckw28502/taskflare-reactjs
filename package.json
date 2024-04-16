@@ -12,7 +12,7 @@
     "prettier:fix": "prettier --write .",
     "format": "npm run lint:fix && npm run prettier:fix",
     "preview": "vite preview",
-    "test": "docker compose down && docker compose up -d --build && cypress open"
+    "test": "start vite & cypress open -b chrome --e2e"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
