@@ -4,6 +4,7 @@ import { useField } from "formik";
 import { func, instanceOf, string } from "prop-types";
 import ErrorMessageComponent from "../ErrorMessageComponent";
 import { Box } from "@mui/material";
+import dayjs from "dayjs";
 
 function DatePickerComponent(props) {
     const field = useField(props)[0];
@@ -36,7 +37,7 @@ function DatePickerComponent(props) {
 DatePickerComponent.propTypes = {
     label: string.isRequired,
     name: string.isRequired,
-    value: instanceOf(Date),
+    value: instanceOf(dayjs),
     id: string.isRequired,
     onChange: func.isRequired
 }

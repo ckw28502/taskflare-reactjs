@@ -3,6 +3,7 @@
     "CREATE_PROJECT": "Buat Proyek",
     "DEADLINE": "Batas Waktu",
     "DESCRIPTION": "Deskripsi",
+    "EDIT_PROJECT": "Edit Proyek",
     "EMAIL_ADDRESS": "Alamat email",
     "NAME": "Nama",
     "PASSWORD": "Kata Sandi",
@@ -30,6 +31,7 @@
         "SETTINGS": "Pengaturan"
     }, 
     "success": {
+        "PROJECT_MODIFIED": "Proyek berhasil diubah!",
         "REGISTER": "Pendaftaran akun berhasil!"
     }
 }

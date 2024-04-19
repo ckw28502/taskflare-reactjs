@@ -4,14 +4,11 @@ import { Form, Formik } from "formik";
 import { useTranslation } from "react-i18next";
 import * as Yup from "yup";
 import InputComponent from "../../../components/inputs/InputComponent";
-import { forwardRef } from "react";
 import dayjs from "dayjs";
 import DatePickerComponent from "../../../components/inputs/DatePickerComponent";
-import projectServices from "../../../services/projectServices";
-import { useNavigate } from "react-router-dom";
+import { func, object, string } from "prop-types";
 
-const AddProject = forwardRef(function AddProject(props, ref) {
-    const navigate = useNavigate();
+function ProjectForm(props) {
 
     const theme = useTheme();
 
@@ -19,12 +16,6 @@ const AddProject = forwardRef(function AddProject(props, ref) {
 
     const containerColor = theme.palette.container;
     const borderColor = theme.palette.border;
-
-    const initialValues = {
-        title: "",
-        description: "",
-        deadline: null
-    };
 
     const tomorrow = dayjs().add(1, 'day').startOf('day').toDate();
 
@@ -34,21 +25,7 @@ const AddProject = forwardRef(function AddProject(props, ref) {
         deadline: Yup.date().nullable().min(tomorrow, t("DEADLINE_INVALID"))
     });
 
-    async function addProject(values) {
-        const request = {
-            title: values.title,
-            description: values.description
-        };
-
-        if (values.deadline) {
-            request.deadline = values.deadline;
-        }
-
-        const newProjectId = await projectServices.createProject(request)
-            .then(data => data.projectId);
-
-        navigate(`/${newProjectId}`);
-    }
+    const deadline = (props.initialValues.deadline) ? dayjs(props.initialValues.deadline) : null;
     
 
     return (
@@ -63,14 +40,14 @@ const AddProject = forwardRef(function AddProject(props, ref) {
                 display: "flex",
                 justifyContent: "center",
                 marginBottom: 4
-            }}>{t("CREATE_PROJECT")}</Typography>
+            }}>{t(props.title)}</Typography>
             <Formik
-                initialValues={initialValues}
+                initialValues={props.initialValues}
                 validationSchema={validationSchema}
-                onSubmit={async(values) => await addProject(values)}
+                onSubmit={async(values) => await props.onSubmit(values)}
             >
                 {({ setFieldValue }) => (
-                        <Form ref={ref} sx={{
+                        <Form sx={{
                             placeSelf: 'center',
                             justifySelf: 'center',
                             display: 'flex',
@@ -89,7 +66,7 @@ const AddProject = forwardRef(function AddProject(props, ref) {
                                     label={t("DEADLINE")} 
                                     name="deadline" 
                                     id="date-deadline"
-                                    value={null} 
+                                    value={deadline} 
                                     onChange={value => setFieldValue("deadline", value, true)}
                                 />
                                 <Button type="submit" id="btn-submit" variant="contained" sx={{
@@ -102,6 +79,12 @@ const AddProject = forwardRef(function AddProject(props, ref) {
             </Formik>
         </Box>
     )
-})
+}
 
-export default AddProject;
+ProjectForm.propTypes = {
+    initialValues: object.isRequired,
+    onSubmit: func.isRequired,
+    title: string.isRequired
+}
+
+export default ProjectForm;

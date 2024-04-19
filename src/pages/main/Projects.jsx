@@ -3,8 +3,8 @@ import Container from "./layout/Container";
 import { useState } from "react";
 import AddIcon from '@mui/icons-material/Add';
 import ModalComponent from "../../components/modals/ModalComponent";
-import AddProject from "./sections/AddProject";
-import GetAllProjects from "./sections/GetAllProjects";
+import AddProject from "./sections/projects/view models/AddProject";
+import GetAllProjects from "./sections/projects/GetAllProjects";
 
 
 function Projects() {

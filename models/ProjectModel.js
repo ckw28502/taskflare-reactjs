@@ -26,6 +26,12 @@ class ProjectModel {
     getDeadline() {
         return this.#deadline;
     }
+
+    editProject({ title, description, deadline }) {
+        this.#title = title;
+        this.#description = description;
+        this.#deadline = deadline;
+    }
 }
 
 export default ProjectModel;

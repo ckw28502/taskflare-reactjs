@@ -8,6 +8,12 @@ const darkTheme = createTheme({
         link: {
             base: "#42a5f5",
             hover: "#ab47bc"
+        },
+        warning: {
+            main: "#ffcd38"
+        },
+        danger: {
+            main: "#d73a49"
         }
     }
 })

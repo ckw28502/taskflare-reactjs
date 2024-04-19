@@ -4,6 +4,7 @@
     "DEADLINE": "Deadline",
     "DESCRIPTION": "Description",
     "EMAIL_ADDRESS": "Email Address",
+    "EDIT_PROJECT": "Edit Project",
     "NAME": "Name",
     "PASSWORD": "Password",
     "SIGN IN": "SIGN IN",
@@ -30,6 +31,7 @@
         "SETTINGS": "Settings"
     },
     "success": {
+        "PROJECT_MODIFIED": "Project successfully modified!",
         "REGISTER": "You are registered now!"
     }
 }

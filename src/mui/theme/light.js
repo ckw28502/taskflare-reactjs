@@ -8,6 +8,12 @@ const lightTheme = createTheme({
         link: {
             base: "#1976d2",
             hover: "#7b1fa2"
+        },
+        warning: {
+            main: "#ffc107"
+        },
+        danger: {
+            main: "#dc3545"
         }
     }
 })

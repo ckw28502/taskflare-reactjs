@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import projectServices from "../../../services/projectServices";
+import projectServices from "../../../../services/projectServices";
 import { Grid } from "@mui/material";
-import ProjectCard from "../../../components/cards/ProjectCard";
-import ProjectModel from "../../../../models/ProjectModel";
+import ProjectCard from "../../../../components/cards/ProjectCard";
+import ProjectModel from "../../../../../models/ProjectModel";
 import { useNavigate } from "react-router-dom";
 
 function GetAllProjects(){
