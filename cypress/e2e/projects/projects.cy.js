@@ -83,9 +83,12 @@ describe("Projects page tests", () => {
     })
 
     describe("Project list tests", () => {
+        
         it("should go to the project page", () => {
             projects.forEach((project, index) => {
                 const projectId = project.id;
+
+                cy.mockServerRequest("GET", `/projects/${projectId}`, 200, project);
 
                 cy.get(`#card-project-${projectId}`).click();
 

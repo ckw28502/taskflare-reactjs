@@ -83,7 +83,7 @@ function Project(){
                             </Grid>
                             <Grid item md={6} sm={12} container spacing={2} justifyContent="flex-end">
                                 <Grid item md={2} sm={5} xs={12}>
-                                    <Button variant="contained" onClick={() => openModal("EDIT")} sx={{
+                                    <Button id="btn-project-edit" variant="contained" onClick={() => openModal("EDIT")} sx={{
                                         backgroundColor: warningColor,
                                         paddingY: 2,
                                         width: "100%"
@@ -92,7 +92,7 @@ function Project(){
                                     </Button>
                                 </Grid>
                                 <Grid item md={2} sm={5} xs={12}>
-                                    <Button variant="contained" sx={{
+                                    <Button id="btn-project-exit" variant="contained" sx={{
                                         backgroundColor: dangerColor,
                                         paddingY: 2,
                                         width: "100%"
