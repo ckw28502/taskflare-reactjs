@@ -9,13 +9,8 @@ describe("Project page tests", () => {
             cy.fixture("projects.json"),
             cy.fixture("users.json")
           ]).then(([projectData, userData]) => {
-            // Extract the desired data from the resolved values
             project = projectData.project;
             user = userData.user;
-          
-            // Log the loaded data (optional)
-            cy.log("Project:", project);
-            cy.log("User:", user);
         });
         today = new Date();
     });
@@ -59,8 +54,8 @@ describe("Project page tests", () => {
                 projectId: 1
             });
     
-            cy.get("#text-title").type(project.title);
-            cy.get("#text-description").type(project.description);
+            cy.get("#text-title").clear().type(project.title);
+            cy.get("#text-description").clear().type(project.description);
             cy.get("#btn-submit").click();
             cy.url().should("include", "/1");
     
@@ -74,9 +69,9 @@ describe("Project page tests", () => {
             const tomorrow = new Date();
             tomorrow.setDate(today.getDate() + 1);
     
-            cy.get("#text-title").type(project.title);
-            cy.get("#text-description").type(project.description);
-            cy.get("#text-description").type(dateToString(tomorrow));
+            cy.get("#text-title").clear().type(project.title);
+            cy.get("#text-description").clear().type(project.description);
+            cy.get("input[name='deadline']").clear().type(dateToString(tomorrow));
             cy.get("#btn-submit").click();
     
             cy.url().should("include", "/1");
@@ -133,6 +128,26 @@ describe("Project page tests", () => {
             submit(user.email);
 
             cy.contains("div","User is successfully assigned!");
+        });
+    })
+
+    describe("Remove position tests", () => {
+        beforeEach(() => {
+            cy.get("#btn-project-exit").click();
+        })
+
+        it("Should not remove self", () => {
+            cy.get("#btn-no").click();
+
+            cy.url().should("include", `/${project.id}`);
+        });
+
+        it("Should remove self", () => {
+            cy.mockServerRequest("DELETE", `/positions/${project.id}`, 204)
+
+            cy.get("#btn-yes").click();
+
+            cy.url().should("not.include", `/${project.id}`);
         });
     })
 });

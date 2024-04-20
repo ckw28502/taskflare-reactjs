@@ -28,12 +28,12 @@ const RemoveUser = forwardRef(function RemoveUser(props, ref) {
             </Box>
             <Grid ref={ref} container display="flex" justifyContent="center" marginTop={4}>
                 <Grid item xs={6}>
-                    <Button variant="contained" onClick={async() => await removePosition()}>
+                    <Button id="btn-yes" variant="contained" onClick={async() => await removePosition()}>
                         <Check />
                     </Button>
                 </Grid>
                 <Grid item xs={6} display="flex" justifyContent="flex-end">
-                    <Button variant="contained" onClick={() => props.closeModal()} sx={{
+                    <Button id="btn-no" variant="contained" onClick={() => props.closeModal()} sx={{
                         backgroundColor: dangerColor.main,
                         "&:hover": {
                             backgroundColor: dangerColor.hover
