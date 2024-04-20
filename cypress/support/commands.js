@@ -24,7 +24,7 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add("mockServerRequest", (method, url, status, body) => {
+Cypress.Commands.add("mockServerRequest", (method, url, status, body = null) => {
     cy.intercept(method, Cypress.env("server_url") + url, (req) => {
         req.reply({
             statusCode: status,

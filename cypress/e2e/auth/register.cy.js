@@ -31,37 +31,37 @@ describe("register page tests", () => {
     cy.contains("div","Email is invalid!")
   })
 
-  it("should show error message if password and confirmation password missmatch!", async() => {
-    cy.get("#text-email").type(user.email)
-    cy.get("#text-name").type(user.name)
-    cy.get("#pass-password").type(user.password)
-    cy.get("#pass-confirmation-password").type("useer")
-    cy.get("#button-submit").click()
+  it("should show error message if password and confirmation password missmatch!", () => {
+    cy.get("#text-email").type(user.email);
+    cy.get("#text-name").type(user.name);
+    cy.get("#pass-password").type(user.password);
+    cy.get("#pass-confirmation-password").type("useer");
+    cy.get("#button-submit").click();
 
     cy.contains("div","Password and confirmation password are different!")
   })
 
-  it("should toast an error if email is already used!", async() => {
+  it("should toast an error if email is already used!", () => {
     cy.mockServerRequest("POST", "/register", 400, {
       message: "EMAIL_EXISTS"
     })
 
-    cy.get("#text-email").type(user.email)
-    cy.get("#text-name").type(user.name)
-    cy.get("#pass-password").type(user.password)
-    cy.get("#pass-confirmation-password").type(user.confirmationPassword)
+    cy.get("#text-email").type(user.email);
+    cy.get("#text-name").type(user.name);
+    cy.get("#pass-password").type(user.password);
+    cy.get("#pass-confirmation-password").type(user.password);
     cy.get("#button-submit").click()
 
-    cy.contains("div", "Email is registered!")
+    cy.contains("div", "Email already registered!")
   });
 
-  it("should toast user is registered!", async() => {
-    cy.mockServerRequest("POST", "/register", 201, {})
+  it("should toast user is registered!", () => {
+    cy.mockServerRequest("POST", "/register", 201, null)
 
     cy.get("#text-email").type(user.email)
     cy.get("#text-name").type(user.name)
     cy.get("#pass-password").type(user.password)
-    cy.get("#pass-confirmation-password").type(user.confirmationPassword)
+    cy.get("#pass-confirmation-password").type(user.password)
     cy.get("#button-submit").click()
 
     cy.contains("div", "You are registered now!")
