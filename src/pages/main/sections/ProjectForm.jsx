@@ -1,4 +1,3 @@
-import { useTheme } from "@emotion/react";
 import { Box, Button, Typography } from "@mui/material";
 import { Form, Formik } from "formik";
 import { useTranslation } from "react-i18next";
@@ -9,13 +8,7 @@ import DatePickerComponent from "../../../components/inputs/DatePickerComponent"
 import { func, object, string } from "prop-types";
 
 function ProjectForm(props) {
-
-    const theme = useTheme();
-
     const { t } = useTranslation();
-
-    const containerColor = theme.palette.container;
-    const borderColor = theme.palette.border;
 
     const tomorrow = dayjs().add(1, 'day').startOf('day').toDate();
 
@@ -29,13 +22,7 @@ function ProjectForm(props) {
     
 
     return (
-        <Box sx={{
-            backgroundColor: containerColor,
-            border: `2px solid ${borderColor}`,
-            boxShadow: 24,
-            p: 4,
-            width: 400
-        }}>
+        <>
             <Typography variant="h4" sx={{
                 display: "flex",
                 justifyContent: "center",
@@ -77,7 +64,7 @@ function ProjectForm(props) {
                         </Form>
                 )}
             </Formik>
-        </Box>
+        </>
     )
 }
 

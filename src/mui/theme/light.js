@@ -10,10 +10,12 @@ const lightTheme = createTheme({
             hover: "#7b1fa2"
         },
         warning: {
-            main: "#ffc107"
+            main: "#ffc107",
+            hover: "#ffcd38"
         },
         danger: {
-            main: "#dc3545"
+            main: "#dc3545",
+            hover: "#d73a49"
         }
     }
 })

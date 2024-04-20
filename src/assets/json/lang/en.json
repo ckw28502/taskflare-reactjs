@@ -10,6 +10,7 @@
     "SIGN IN": "SIGN IN",
     "SIGN UP": "SIGN UP",
     "TITLE": "Title",
+    "SUBMIT": "SUBMIT",
     "errors": {
         "CONFIRMATION_PASSWORD_REQUIRED": "Confirmation password field is required!",
         "DEADLINE_INVALID": "Deadline field is invalid!",
@@ -23,7 +24,9 @@
         "PASSWORD_INVALID": "Password is invalid!",
         "PASSWORD_MISSMATCH": "Password and confirmation password are different!",
         "PASSWORD_REQUIRED": "Password field is required!",
-        "TITLE_REQUIRED": "Title field is required!"
+        "TITLE_REQUIRED": "Title field is required!",
+        "USER_ALREADY_ASSIGNED": "User has already assigned!",
+        "USER_NOT_FOUND": "User is not found!"
     },
     "sidebar": {
         "HELP": "Help",
@@ -32,6 +35,7 @@
     },
     "success": {
         "PROJECT_MODIFIED": "Project successfully modified!",
-        "REGISTER": "You are registered now!"
+        "REGISTER": "You are registered now!",
+        "USER_ASSIGNED": "User is successfully assigned!"
     }
 }

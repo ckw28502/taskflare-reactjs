@@ -24,7 +24,6 @@ function Login() {
             navigate("/");
         })
         .catch(res => {
-            console.log(res);
             const message = getError(res.response.data.message);
             toastify.error(message);
         })

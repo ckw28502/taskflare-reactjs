@@ -10,10 +10,12 @@ const darkTheme = createTheme({
             hover: "#ab47bc"
         },
         warning: {
-            main: "#ffcd38"
+            main: "#ffcd38",
+            hover: "#ffc107"
         },
         danger: {
-            main: "#d73a49"
+            main: "#d73a49",
+            hover: "#dc3545"
         }
     }
 })

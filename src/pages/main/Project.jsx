@@ -7,11 +7,12 @@ import { Box, Button, Grid, Typography } from "@mui/material";
 import { DragDropContext } from "react-beautiful-dnd";
 import Task from "./sections/project/Task";
 import { useTheme } from "@emotion/react";
-import { Clear, Edit } from '@mui/icons-material'; // Importing Delete and Edit icons
+import { Clear, Edit, PersonAdd } from '@mui/icons-material'; // Importing Delete and Edit icons
 import ModalComponent from "../../components/modals/ModalComponent";
-import EditProject from "./sections/projects/view models/EditProject";
+import EditProject from "./sections/project/view models/EditProject";
 import toastify from "../../tools/toastify";
 import { useTranslation } from "react-i18next";
+import Invite from "./sections/project/Invite";
 
 
 function Project(){
@@ -30,6 +31,9 @@ function Project(){
                 break;
             case "EXIT":
                 break;
+            case "INVITE":
+                setModalBody(<Invite projectId={project.getId()}/>)
+                break;
             default:
                 break;
         }
@@ -40,8 +44,8 @@ function Project(){
         setOpen(false);
     }
 
-    const warningColor = theme.palette.warning.main;
-    const dangerColor = theme.palette.danger.main;
+    const warningColor = theme.palette.warning;
+    const dangerColor = theme.palette.danger;
 
     const { projectId } = useParams();
 
@@ -84,24 +88,31 @@ function Project(){
                             <Grid item md={6} sm={12} container spacing={2} justifyContent="flex-end">
                                 <Grid item md={2} sm={5} xs={12}>
                                     <Button id="btn-project-edit" variant="contained" onClick={() => openModal("EDIT")} sx={{
-                                        backgroundColor: warningColor,
+                                        backgroundColor: warningColor.main,
                                         paddingY: 2,
-                                        width: "100%"
+                                        "&:hover": {
+                                            backgroundColor: warningColor.hover
+                                        }
                                     }}>
                                         <Edit />
                                     </Button>
                                 </Grid>
                                 <Grid item md={2} sm={5} xs={12}>
                                     <Button id="btn-project-exit" variant="contained" sx={{
-                                        backgroundColor: dangerColor,
+                                        backgroundColor: dangerColor.main,
                                         paddingY: 2,
-                                        width: "100%"
+                                        "&:hover": {
+                                            backgroundColor: dangerColor.hover,
+                                        }
                                     }}>
                                         <Clear />
                                     </Button>
                                 </Grid>
-                        </Grid>
+                            </Grid>
                         </Grid> 
+                        <Button id="btn-invite" variant="contained" sx={{ padding: 2 }} onClick={() => openModal("INVITE")}>
+                            <PersonAdd />
+                        </Button>
                         <DragDropContext>
                             <Task />
                         </DragDropContext>
