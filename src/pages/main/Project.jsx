@@ -13,6 +13,7 @@ import EditProject from "./sections/project/view models/EditProject";
 import toastify from "../../tools/toastify";
 import { useTranslation } from "react-i18next";
 import Invite from "./sections/project/Invite";
+import RemoveUser from "./sections/project/RemoveUser";
 
 
 function Project(){
@@ -30,9 +31,10 @@ function Project(){
                 setModalBody(<EditProject project={project} onSubmit={async(values) => editProject(values)}/>);
                 break;
             case "EXIT":
+                setModalBody(<RemoveUser projectId={project.getId()} closeModal={() => handleModalClose()} />)
                 break;
             case "INVITE":
-                setModalBody(<Invite projectId={project.getId()}/>)
+                setModalBody(<Invite projectId={project.getId()} closeModal={() => handleModalClose()} />)
                 break;
             default:
                 break;
@@ -86,10 +88,11 @@ function Project(){
                                 <Typography variant="h2">{project.getTitle().toUpperCase()}</Typography>
                             </Grid>
                             <Grid item md={6} sm={12} container spacing={2} justifyContent="flex-end">
-                                <Grid item md={2} sm={5} xs={12}>
+                                <Grid item md={3} xs={12}>
                                     <Button id="btn-project-edit" variant="contained" onClick={() => openModal("EDIT")} sx={{
                                         backgroundColor: warningColor.main,
                                         paddingY: 2,
+                                        width: "100%",
                                         "&:hover": {
                                             backgroundColor: warningColor.hover
                                         }
@@ -97,10 +100,11 @@ function Project(){
                                         <Edit />
                                     </Button>
                                 </Grid>
-                                <Grid item md={2} sm={5} xs={12}>
-                                    <Button id="btn-project-exit" variant="contained" sx={{
+                                <Grid item md={3} xs={12}>
+                                    <Button id="btn-project-exit" variant="contained" onClick={() => openModal("EXIT")} sx={{
                                         backgroundColor: dangerColor.main,
                                         paddingY: 2,
+                                        width: "100%",
                                         "&:hover": {
                                             backgroundColor: dangerColor.hover,
                                         }
@@ -108,11 +112,17 @@ function Project(){
                                         <Clear />
                                     </Button>
                                 </Grid>
+                                <Grid item md={3} xs={12}>
+                                <Button id="btn-invite" variant="contained" onClick={() => openModal("INVITE")}sx={{
+                                        paddingY: 2,
+                                        width: "100%"
+                                    }}>
+                                    <PersonAdd />
+                                </Button>
+                                </Grid>
                             </Grid>
                         </Grid> 
-                        <Button id="btn-invite" variant="contained" sx={{ padding: 2 }} onClick={() => openModal("INVITE")}>
-                            <PersonAdd />
-                        </Button>
+                        
                         <DragDropContext>
                             <Task />
                         </DragDropContext>

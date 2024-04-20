@@ -10,6 +10,7 @@
     "SIGN IN": "MASUK",
     "SIGN UP": "DAFTAR",
     "TITLE": "Judul",
+    "REMOVE_POSITION": "Apakah Anda yakin akan keluar dari proyek ini?",
     "SUBMIT": "KIRIM",
     "errors": {
         "CONFIRMATION_PASSWORD_REQUIRED": "Kata sandi konfirmasi wajib diisi!",

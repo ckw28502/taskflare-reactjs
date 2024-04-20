@@ -10,6 +10,7 @@
     "SIGN IN": "SIGN IN",
     "SIGN UP": "SIGN UP",
     "TITLE": "Title",
+    "REMOVE_POSITION": "Do you want to unassign yourself of this project?",
     "SUBMIT": "SUBMIT",
     "errors": {
         "CONFIRMATION_PASSWORD_REQUIRED": "Confirmation password field is required!",

@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import * as Yup from "yup";
 import InputComponent from "../../../../components/inputs/InputComponent";
 import { Box, Button } from "@mui/material";
-import { string } from "prop-types";
+import { func, string } from "prop-types";
 import positionServices from "../../../../services/positionServices";
 import toastify from "../../../../tools/toastify";
 import getError from "../../../../tools/error";
@@ -18,7 +18,10 @@ const Invite = forwardRef(function Invite(props, ref) {
         values.projectId = props.projectId;
 
         positionServices.addPosition(values)
-            .then(() => toastify.success(t("success.USER_ASSIGNED")))
+            .then(() => {
+                props.closeModal();
+                toastify.success(t("success.USER_ASSIGNED"));
+            })
             .catch(res => {
                 const message = getError(res.response.data.message);
                 toastify.error(message);
@@ -51,7 +54,8 @@ const Invite = forwardRef(function Invite(props, ref) {
 });
 
 Invite.propTypes = {
-    projectId: string.isRequired
+    projectId: string.isRequired,
+    closeModal: func.isRequired
 }
 
 export default Invite;
