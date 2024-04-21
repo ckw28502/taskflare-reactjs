@@ -9,11 +9,20 @@ import DarkModeSwitchComponent from "../../../components/DarkModeSwitchComponent
 import { useTranslation } from "react-i18next";
 import LanguageSelectComponent from "../../../components/LanguageSelectComponent";
 import { func, object, string } from "prop-types";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import projectAction from "../../../redux/actions/projectAction";
 
 function LandingForm(props) {
     const theme = useTheme();
 
     const { t } = useTranslation();
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+      dispatch(projectAction.removeProjectAction());
+    }, [dispatch])
 
     let title;
     let link;

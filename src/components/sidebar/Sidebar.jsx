@@ -43,20 +43,22 @@ function Sidebar() {
 
     return (
         <Grid item xs={2}>
-            <IconButton
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                onClick={handleToggleDrawer}
-                sx={{ 
-                    display: { 
-                        sm: 'block', 
-                        md: 'none'
-                    } 
-                }}
-            >
-                <MenuIcon />
-            </IconButton>
+            <Box sx={{
+                display: {
+                    md: "none",
+                    sm: "block"
+                },
+                margin: 2
+            }}>
+                <IconButton
+                    edge="start"
+                    color="inherit"
+                    aria-label="menu"
+                    onClick={handleToggleDrawer}
+                >
+                    <MenuIcon />
+                </IconButton>
+            </Box>
             <Drawer
                 open={isMobile ? isOpen : true}
                 onClose={handleToggleDrawer}
@@ -70,14 +72,34 @@ function Sidebar() {
                 }}>
                     <Box sx={{
                         position:"relative",
-                        marginBottom: "30px"
+                        marginBottom: "30px",
+                        py: 1
                     }}>
                         <Box sx={{
                             alignSelf: "end",
                             position: "absolute",
-                            right: "2%",
+                            right: 0,
                         }}>
-                            <LanguageSelectComponent />
+                            <Box sx={{
+                                display: {
+                                    md: "none",
+                                    sm: "block"
+                                }
+                            }}>
+                                <Box display="flex" justifyContent="flex-end">
+                                    <IconButton
+                                        edge="start"
+                                        color="inherit"
+                                        aria-label="menu"
+                                        onClick={handleToggleDrawer}
+                                    >
+                                        <MenuIcon />
+                                    </IconButton>
+                                </Box>
+                            </Box>
+                            <Box>
+                                <LanguageSelectComponent />
+                            </Box>
                         </Box>
                     </Box>
                     <Toolbar />

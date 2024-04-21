@@ -1,14 +1,17 @@
 import { Box, Button } from "@mui/material";
 import Container from "./layout/Container";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddIcon from '@mui/icons-material/Add';
 import ModalComponent from "../../components/modals/ModalComponent";
 import AddProject from "./sections/projects/view models/AddProject";
 import GetAllProjects from "./sections/projects/GetAllProjects";
+import { useDispatch } from "react-redux";
+import projectAction from "../../redux/actions/projectAction";
 
 
 function Projects() {
     const [open, setOpen] = useState(false);
+    const dispatch = useDispatch();
 
     function openModal() {
         setOpen(true);
@@ -17,6 +20,10 @@ function Projects() {
     function handleModalClose() {
         setOpen(false);
     }
+
+    useEffect(() => {
+        dispatch(projectAction.removeProjectAction());
+    }, [dispatch]);
     
     return(
         <Container>

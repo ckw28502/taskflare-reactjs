@@ -1,4 +1,4 @@
-class User {
+class UserModel {
     #email;
     #name;
 
@@ -15,4 +15,4 @@ class User {
     }
 }
 
-export default User;
+export default UserModel;
