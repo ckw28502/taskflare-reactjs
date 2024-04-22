@@ -12,7 +12,13 @@ async function createTask(values) {
         .then(response => response.data);
 }
 
+async function editTask(values) {
+    return axiosInstance.put(baseURL, values)
+        .then(response => response.data);
+}
+
 export default {
     getAllTasks,
-    createTask
+    createTask,
+    editTask
 };

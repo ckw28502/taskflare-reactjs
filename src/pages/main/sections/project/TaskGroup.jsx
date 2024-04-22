@@ -56,9 +56,9 @@ function TaskGroup(props) {
 
     useEffect(() => {
         setTaskCards(props.tasks.map((task, index) => 
-            <TaskCard key={index} task={task} index={index} />
+            <TaskCard key={index} task={task} index={index} editTask={modifiedTask => props.editTask(modifiedTask)} />
         ));
-    }, [props.tasks]);
+    }, [props, props.tasks]);
     
 
     return(
@@ -100,7 +100,8 @@ function TaskGroup(props) {
 TaskGroup.propTypes = {
     title: string.isRequired,
     tasks: arrayOf(instanceOf(TaskModel)).isRequired,
-    addTask: func
+    addTask: func,
+    editTask: func.isRequired
 };
 
 export default TaskGroup;

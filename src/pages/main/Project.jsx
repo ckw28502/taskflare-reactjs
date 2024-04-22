@@ -46,6 +46,7 @@ function Project(){
 
     function handleModalClose() {
         setOpen(false);
+        setModalBody(null);
     }
 
     const warningColor = theme.palette.warning;

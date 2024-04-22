@@ -35,18 +35,26 @@ function Task(props) {
         setTasks([...tasks, newTask]);
     }
 
+    function editTask(modifiedTask) {
+        setTasks(oldTasks => oldTasks.map(task => (task.getId() === modifiedTask.getId() ? modifiedTask : task)));
+    }
+
     return(
         <Grid container spacing={2} sx={{
             marginY: 5
         }}>
             <Grid item md={4} xs={12}>
-                <TaskGroup title="PLANNED" tasks={plannedTasks} addTask={newTask => addTask(newTask)} />
+                <TaskGroup 
+                    title="PLANNED" 
+                    tasks={plannedTasks} 
+                    addTask={newTask => addTask(newTask)} 
+                    editTask={modifiedTask => editTask(modifiedTask)} />
             </Grid>
             <Grid item md={4} xs={12}>
-                <TaskGroup title="IN_PROGRESS" tasks={inProgressTasks} />
+                <TaskGroup title="IN_PROGRESS" tasks={inProgressTasks} editTask={modifiedTask => editTask(modifiedTask)} />
             </Grid>
             <Grid item md={4} xs={12}>
-                <TaskGroup title="FINISHED" tasks={finishedTasks} />
+                <TaskGroup title="FINISHED" tasks={finishedTasks} editTask={modifiedTask => editTask(modifiedTask)} />
             </Grid>
         </Grid>
     );

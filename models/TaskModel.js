@@ -50,6 +50,10 @@ class TaskModel {
     getStatus() {
         return this.#status;
     }
+
+    editProject() {
+        
+    }
 }
 
 export default TaskModel;

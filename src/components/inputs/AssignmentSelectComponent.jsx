@@ -47,18 +47,22 @@ function AssignmentSelectComponent(props) {
 
 
     return(
-        <FormControl>
-            <InputLabel id={`label-${props.id}`}>{t("USER")}</InputLabel>
-            <Select
-                labelId={`label-${props.id}`}
-                {...props}
-                {...field}
-                value={value}
-                onChange={event => handleChange(event.target.value)}
-            >
-                {selectItems}
-            </Select>
-        </FormControl>
+        <>
+            {selectItems.length && (
+                <FormControl>
+                    <InputLabel id={`label-${props.id}`}>{t("USER")}</InputLabel>
+                    <Select
+                        labelId={`label-${props.id}`}
+                        {...props}
+                        {...field}
+                        value={value}
+                        onChange={event => handleChange(event.target.value)}
+                    >
+                        {selectItems}
+                    </Select>
+                </FormControl>
+            )}
+        </>
     )
 }
 

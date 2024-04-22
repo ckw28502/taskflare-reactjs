@@ -4,7 +4,8 @@
     "CREATE_TASK": "Buat Tugas",
     "DEADLINE": "Batas Waktu",
     "DESCRIPTION": "Deskripsi",
-    "EDIT_PROJECT": "Edit Proyek",
+    "EDIT_PROJECT": "Ubah Proyek",
+    "EDIT_TASK": "Ubah Tugas",
     "EMAIL_ADDRESS": "Alamat email",
     "FINISHED": "SELESAI",
     "IN_PROGRESS": "BERJALAN",
@@ -45,6 +46,7 @@
         "PROJECT_MODIFIED": "Proyek berhasil diubah!",
         "REGISTER": "Pendaftaran akun berhasil!",
         "TASK_CREATED": "Tugas berhasil ditambahkan!",
+        "TASK_MODIFIED": "Tugas berhasil diubah!",
         "USER_ASSIGNED": "Pengguna berhasil ditambahkan!"
     }
 }

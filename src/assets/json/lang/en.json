@@ -6,6 +6,7 @@
     "DESCRIPTION": "Description",
     "EMAIL_ADDRESS": "Email Address",
     "EDIT_PROJECT": "Edit Project",
+    "EDIT_TASK": "Edit Task",
     "FINISHED": "FINISHED",
     "IN_PROGRESS": "IN PROGRESS",
     "NAME": "Name",
@@ -45,6 +46,7 @@
         "PROJECT_MODIFIED": "Project successfully modified!",
         "REGISTER": "You are registered now!",
         "TASK_CREATED": "Task created successfully!",
+        "TASK_MODIFIED": "Task successfully modified",
         "USER_ASSIGNED": "User is successfully assigned!"
     }
 }
