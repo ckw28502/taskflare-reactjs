@@ -3,5 +3,19 @@
         "email": "user@gmail.com",
         "name": "user",
         "password": "user"
-    }
+    },
+    "users" : [
+        {
+            "id": "1",
+            "email": "user1@gmail.com",
+            "name": "user1",
+            "password": "user1"
+        },
+        {
+            "id": "2",
+            "email": "user2@gmail.com",
+            "name": "user2",
+            "password": "user2"
+        }
+    ]
 }

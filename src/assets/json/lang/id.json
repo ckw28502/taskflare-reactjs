@@ -9,6 +9,7 @@
     "FINISHED": "SELESAI",
     "IN_PROGRESS": "BERJALAN",
     "NAME": "Nama",
+    "NO_DEADLINE": "TANPA BATAS WAKTU",
     "PASSWORD": "Kata Sandi",
     "PLANNED": "DIRENCANAKAN",
     "REMOVE_POSITION": "Apakah Anda yakin akan keluar dari proyek ini?",
@@ -16,6 +17,7 @@
     "SIGN UP": "DAFTAR",
     "SUBMIT": "KIRIM",
     "TITLE": "Judul",
+    "UNASSIGNED": "TIDAK DITUGASKAN",
     "USER": "Anggota",
     "errors": {
         "CONFIRMATION_PASSWORD_REQUIRED": "Kata sandi konfirmasi wajib diisi!",
@@ -42,6 +44,7 @@
     "success": {
         "PROJECT_MODIFIED": "Proyek berhasil diubah!",
         "REGISTER": "Pendaftaran akun berhasil!",
+        "TASK_CREATED": "Tugas berhasil ditambahkan!",
         "USER_ASSIGNED": "Pengguna berhasil ditambahkan!"
     }
 }

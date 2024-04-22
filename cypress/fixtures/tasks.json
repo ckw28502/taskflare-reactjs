@@ -1,0 +1,19 @@
+{
+    "task": {
+        "id": "3",
+        "title": "Task",
+        "description": "A task"
+    },
+    "tasks": [
+        {
+            "id": "1",
+            "title": "Task 1",
+            "description": "First task"
+        },
+        {
+            "id": "3",
+            "title": "Task 2",
+            "description": "Second task"
+        }
+    ]
+}

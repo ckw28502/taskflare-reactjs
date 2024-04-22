@@ -9,6 +9,7 @@
     "FINISHED": "FINISHED",
     "IN_PROGRESS": "IN PROGRESS",
     "NAME": "Name",
+    "NO_DEADLINE": "NO DEADLINE",
     "PASSWORD": "Password",
     "PLANNED": "PLANNED",
     "REMOVE_POSITION": "Do you want to unassign yourself of this project?",
@@ -16,6 +17,7 @@
     "SIGN UP": "SIGN UP",
     "SUBMIT": "SUBMIT",
     "TITLE": "Title",
+    "UNASSIGNED": "UNASSIGNED",
     "USER": "User",
     "errors": {
         "CONFIRMATION_PASSWORD_REQUIRED": "Confirmation password field is required!",
@@ -42,6 +44,7 @@
     "success": {
         "PROJECT_MODIFIED": "Project successfully modified!",
         "REGISTER": "You are registered now!",
+        "TASK_CREATED": "Task created successfully!",
         "USER_ASSIGNED": "User is successfully assigned!"
     }
 }

@@ -4,31 +4,65 @@ describe("Project page tests", () => {
     let user;
 
     let today;
+
+    let tasks;
+
+    let task;
+
+    let positions;
     before(async() => {
         await Promise.all([
             cy.fixture("projects.json"),
-            cy.fixture("users.json")
-          ]).then(([projectData, userData]) => {
+            cy.fixture("users.json"),
+            cy.fixture("tasks.json")
+          ]).then(([projectData, userData, taskData]) => {
             project = projectData.project;
             user = userData.user;
+            tasks = [];
+            for (const taskDatum of taskData.tasks) {
+                tasks.push(fillTaskResponse(taskDatum, user));
+            }
+            task = fillTaskResponse(taskData.task, user);
+
+            positions = userData.users.map(userDatum => {
+                return {
+                    id: userDatum.id,
+                    email: userDatum.email
+                }
+            })
         });
         today = new Date();
     });
 
-    beforeEach(() => {
-        cy.mockServerRequest("GET", "/projects/1", 200, project);
+    function fillTaskResponse(task, user) {
+        return {
+            id: task.id,
+            assigneeId: "1",
+            assigneeName: user.name,
+            assigneeEmail: user.email,
+            title: task.title,
+            description: task.description,
+            deadline: null,
+            status: "PLANNED"
+        };
+    }
 
-        cy.visit(`${Cypress.env("base_url")}/1`, {
+    beforeEach(() => {
+        cy.mockServerRequest("GET", "/projects/3", 200, project);
+        cy.mockServerRequest("GET", "/tasks/3", 200, tasks);
+        cy.mockServerRequest("GET", "/positions/3", 200, positions);
+
+        cy.visit(`${Cypress.env("base_url")}/3`, {
             onBeforeLoad: win => {
                 win.sessionStorage.setItem("token", "token");
             }
         });
     });
 
-    function dateToString() {
-        const month = String(today.getMonth() + 1).padStart(2, '0');
-        const day = String(today.getDate()).padStart(2, '0');
-        const year = today.getFullYear();
+    function dateToString(date) {
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        const year = date.getFullYear();
 
         return `${month}${day}${year}`;
     }
@@ -49,33 +83,31 @@ describe("Project page tests", () => {
             cy.contains("div", "Deadline field is invalid!");
         });
     
-        it("should create project without deadline inputted", () => {
-            cy.mockServerRequest("POST", "/projects", 201, {
-                projectId: 1
-            });
+        it("should edit project without deadline inputted", () => {
+            cy.mockServerRequest("PUT", "/projects", 204, null);
     
             cy.get("#text-title").clear().type(project.title);
             cy.get("#text-description").clear().type(project.description);
             cy.get("#btn-submit").click();
-            cy.url().should("include", "/1");
-    
+
+            cy.get("#h2-title").should("have.text", project.title.toUpperCase()); 
+            cy.contains("div", "Project successfully modified!") ;
         });
     
-        it("should create project with deadline inputted", () => {
-            cy.mockServerRequest("POST", "/projects", 201, {
-                projectId: 1
-            });
+        it("should edit project with deadline inputted", () => {
+            cy.mockServerRequest("PUT", "/projects", 204, null);
+
     
             const tomorrow = new Date();
             tomorrow.setDate(today.getDate() + 1);
-    
+
             cy.get("#text-title").clear().type(project.title);
             cy.get("#text-description").clear().type(project.description);
             cy.get("input[name='deadline']").clear().type(dateToString(tomorrow));
             cy.get("#btn-submit").click();
     
-            cy.url().should("include", "/1");
-    
+            cy.get("#h2-title").should("have.text", project.title.toUpperCase()); 
+            cy.contains("div", "Project successfully modified!") ; 
         });
     })
 
@@ -148,6 +180,82 @@ describe("Project page tests", () => {
             cy.get("#btn-yes").click();
 
             cy.url().should("not.include", `/${project.id}`);
+        });
+    })
+
+    describe("Add task tests", () => {
+        beforeEach(() => {
+            cy.get("#btn-task-add").click();
+        })
+
+        it("Should show error if input invalid", () => {
+            cy.get("#text-title").click();
+            cy.get("#text-description").click();
+            cy.get("input[name='deadline']").type(dateToString(today));
+            cy.get("#btn-submit").click();
+    
+            cy.contains("div", "Title field is required!");
+            cy.contains("div", "Description field is required!");
+            cy.contains("div", "Deadline field is invalid!");
+        });
+
+        it("should create task without deadline inputted", () => {
+            cy.mockServerRequest("POST", "/tasks", 201, task);
+    
+            cy.get("#text-title").type(project.title);
+            cy.get("#text-description").type(project.description);
+            cy.get("#btn-submit").click();
+
+            cy.get(`#card-project-${task.id}`).should("exist");
+            cy.contains("div", "Task created successfully!");
+        });
+    
+        it("should create task with deadline inputted", () => {
+            cy.mockServerRequest("POST", "/tasks", 201, task);
+    
+            const tomorrow = new Date();
+            tomorrow.setDate(today.getDate() + 1);
+    
+            cy.get("#text-title").type(project.title);
+            cy.get("#text-description").type(project.description);
+            cy.get("input[name='deadline']").type(dateToString(tomorrow));
+            cy.get("#btn-submit").click();
+    
+            cy.get(`#card-project-${task.id}`).should("exist");
+            cy.contains("div", "Task created successfully!");
+        });
+
+        it("should create task with user inputted", () => {
+            cy.mockServerRequest("POST", "/tasks", 201, task);
+    
+            const tomorrow = new Date();
+            tomorrow.setDate(today.getDate() + 1);
+    
+            cy.get("#select-user").click();
+            cy.contains("li", positions[0].email.toUpperCase()).click();
+            cy.get("#text-title").type(project.title);
+            cy.get("#text-description").type(project.description);
+            cy.get("#btn-submit").click();
+    
+            cy.get(`#card-project-${task.id}`).should("exist");
+            cy.contains("div", "Task created successfully!");
+        });
+
+        it("should create task with deadline inputted", () => {
+            cy.mockServerRequest("POST", "/tasks", 201, task);
+    
+            const tomorrow = new Date();
+            tomorrow.setDate(today.getDate() + 1);
+    
+            cy.get("#select-user").click();
+            cy.contains("li", positions[0].email.toUpperCase()).click();
+            cy.get("#text-title").type(project.title);
+            cy.get("#text-description").type(project.description);
+            cy.get("input[name='deadline']").type(dateToString(tomorrow));
+            cy.get("#btn-submit").click();
+    
+            cy.get(`#card-project-${task.id}`).should("exist");
+            cy.contains("div", "Task created successfully!");
         });
     })
 });

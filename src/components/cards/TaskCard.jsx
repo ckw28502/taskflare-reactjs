@@ -4,13 +4,17 @@ import { Draggable } from "@hello-pangea/dnd";
 import { Box, Card, CardContent, Typography } from "@mui/material";
 import formatDate from "../../services/dateFormatter,js";
 import { useTheme } from "@emotion/react";
+import { useTranslation } from "react-i18next";
 
 
 function TaskCard(props) {
     const theme = useTheme();
+    const { t } = useTranslation();
 
     const deadline = props.task.getDeadline();
-    let deadlineStr = (deadline) ? formatDate(deadline) : "NO DEADLINE!!!"
+    const deadlineStr = (deadline) ? formatDate(deadline) : t("NO_DEADLINE");
+
+    const assignee = (props.task.getAssigneeName) ? props.task.getAssigneeName : t("UNASSIGNED");
     
     let dateColor = "inherit";
     if (deadline) {
@@ -42,7 +46,7 @@ function TaskCard(props) {
                                 {props.task.getTitle()}
                             </Typography>
                             <Typography variant="h5">
-                                {props.task.getAssigneeName()}
+                                {assignee}
                             </Typography>
                             <Typography variant="h5" color={dateColor}>
                                 {deadlineStr}

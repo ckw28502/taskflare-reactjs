@@ -33,10 +33,10 @@ describe("Projects page tests", () => {
             cy.get("#btn-add").click();
         })
 
-        function dateToString() {
-            const month = String(today.getMonth() + 1).padStart(2, '0');
-            const day = String(today.getDate()).padStart(2, '0');
-            const year = today.getFullYear();
+        function dateToString(date) {
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            const year = date.getFullYear();
     
             return `${month}${day}${year}`;
         }
@@ -74,7 +74,7 @@ describe("Projects page tests", () => {
     
             cy.get("#text-title").type(project.title);
             cy.get("#text-description").type(project.description);
-            cy.get("#text-description").type(dateToString(tomorrow));
+            cy.get("input[name='deadline']").type(dateToString(tomorrow));
             cy.get("#btn-submit").click();
     
             cy.url().should("include", "/1");

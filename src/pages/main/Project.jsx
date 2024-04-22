@@ -93,7 +93,7 @@ function Project(){
                     }}>
                         <Grid container spacing={2} alignItems="center">
                             <Grid item md={6} sm={12}>
-                                <Typography variant="h2">{project.getTitle().toUpperCase()}</Typography>
+                                <Typography variant="h2" id="h2-title">{project.getTitle().toUpperCase()}</Typography>
                             </Grid>
                             <Grid item md={6} sm={12} container spacing={2} justifyContent="flex-end">
                                 <Grid item md={3} xs={12}>

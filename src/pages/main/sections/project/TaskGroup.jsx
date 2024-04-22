@@ -11,6 +11,7 @@ import taskServices from "../../../../services/taskServices";
 import TaskModel from "../../../../../models/TaskModel";
 import TaskCard from "../../../../components/cards/TaskCard";
 import { Droppable } from "@hello-pangea/dnd";
+import toastify from "../../../../tools/toastify";
 
 
 function TaskGroup(props) {
@@ -44,8 +45,10 @@ function TaskGroup(props) {
 
         taskServices.createTask(request)
             .then(data => {
+                handleModalClose();
                 const task = new TaskModel(data);
                 props.addTask(task);
+                toastify.success(t("success.TASK_CREATED"));
             });
     }
 
