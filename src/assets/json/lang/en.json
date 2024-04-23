@@ -47,7 +47,7 @@
         "PROJECT_MODIFIED": "Project successfully modified!",
         "REGISTER": "You are registered now!",
         "TASK_CREATED": "Task created successfully!",
-        "TASK_DELETED": "Tugas berhasil dihapus!",
+        "TASK_DELETED": "Task successfully deleted!",
         "TASK_MODIFIED": "Task successfully modified!",
         "USER_ASSIGNED": "User is successfully assigned!"
     }

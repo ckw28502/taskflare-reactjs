@@ -330,4 +330,25 @@ describe("Project page tests", () => {
             cy.contains("div", "Task successfully modified!");
         });
     })
+
+    describe("Delete task tests", () => {
+        beforeEach(() => {
+            cy.get("#delete-task-1").click();
+        })
+
+        it("Should not delete task", () => {
+            cy.get("#btn-no").click();
+
+            cy.get("#card-project-1").should("exist");
+        });
+
+        it("Should delete task", () => {
+            cy.mockServerRequest("DELETE", "/tasks/1", 204)
+
+            cy.get("#btn-yes").click();
+
+            cy.get("#card-project-1").should("not.exist");
+            cy.contains("div", "Task successfully deleted!");
+        });
+    })
 });
