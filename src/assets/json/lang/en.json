@@ -3,6 +3,7 @@
     "CREATE_PROJECT": "Create Project",
     "CREATE_TASK": "Create Task",
     "DEADLINE": "Deadline",
+    "DELETE_TASK": "Do you want to remove this task?",
     "DESCRIPTION": "Description",
     "EMAIL_ADDRESS": "Email Address",
     "EDIT_PROJECT": "Edit Project",
@@ -46,6 +47,7 @@
         "PROJECT_MODIFIED": "Project successfully modified!",
         "REGISTER": "You are registered now!",
         "TASK_CREATED": "Task created successfully!",
+        "TASK_DELETED": "Tugas berhasil dihapus!",
         "TASK_MODIFIED": "Task successfully modified!",
         "USER_ASSIGNED": "User is successfully assigned!"
     }

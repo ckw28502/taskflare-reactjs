@@ -17,8 +17,13 @@ async function editTask(values) {
         .then(response => response.data);
 }
 
+async function deleteTask(taskId) {
+    return axiosInstance.delete(`${baseURL}/${taskId}`);
+}
+
 export default {
     getAllTasks,
     createTask,
-    editTask
+    editTask,
+    deleteTask
 };

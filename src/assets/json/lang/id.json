@@ -3,6 +3,7 @@
     "CREATE_PROJECT": "Buat Proyek",
     "CREATE_TASK": "Buat Tugas",
     "DEADLINE": "Batas Waktu",
+    "DELETE_TASK": "Apakah Anda yakin akan menghapus tugas ini?",
     "DESCRIPTION": "Deskripsi",
     "EDIT_PROJECT": "Ubah Proyek",
     "EDIT_TASK": "Ubah Tugas",
@@ -46,6 +47,7 @@
         "PROJECT_MODIFIED": "Proyek berhasil diubah!",
         "REGISTER": "Pendaftaran akun berhasil!",
         "TASK_CREATED": "Tugas berhasil ditambahkan!",
+        "TASK_DELETED": "Tugas berhasil dihapus!",
         "TASK_MODIFIED": "Tugas berhasil diubah!",
         "USER_ASSIGNED": "Pengguna berhasil ditambahkan!"
     }

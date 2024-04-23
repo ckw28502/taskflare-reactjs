@@ -39,6 +39,10 @@ function Task(props) {
         setTasks(oldTasks => oldTasks.map(task => (task.getId() === modifiedTask.getId() ? modifiedTask : task)));
     }
 
+    function deleteTask(taskId) {
+        setTasks(oldTasks => oldTasks.filter(task => task.getId() !== taskId));
+    }
+
     return(
         <Grid container spacing={2} sx={{
             marginY: 5
@@ -48,13 +52,25 @@ function Task(props) {
                     title="PLANNED" 
                     tasks={plannedTasks} 
                     addTask={newTask => addTask(newTask)} 
-                    editTask={modifiedTask => editTask(modifiedTask)} />
+                    editTask={modifiedTask => editTask(modifiedTask)}
+                    deleteTask={taskId => deleteTask(taskId)}     
+                />
             </Grid>
             <Grid item md={4} xs={12}>
-                <TaskGroup title="IN_PROGRESS" tasks={inProgressTasks} editTask={modifiedTask => editTask(modifiedTask)} />
+                <TaskGroup 
+                    title="IN_PROGRESS" 
+                    tasks={inProgressTasks} 
+                    editTask={modifiedTask => editTask(modifiedTask)}
+                    deleteTask={taskId => deleteTask(taskId)}     
+                />
             </Grid>
             <Grid item md={4} xs={12}>
-                <TaskGroup title="FINISHED" tasks={finishedTasks} editTask={modifiedTask => editTask(modifiedTask)} />
+                <TaskGroup 
+                    title="FINISHED"
+                    tasks={finishedTasks} 
+                    editTask={modifiedTask => editTask(modifiedTask)} 
+                    deleteTask={taskId => deleteTask(taskId)}
+                />
             </Grid>
         </Grid>
     );

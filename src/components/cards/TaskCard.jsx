@@ -11,6 +11,7 @@ import { useState } from "react";
 import EditTask from "../../pages/main/sections/project/view models/EditTask";
 import taskServices from "../../services/taskServices";
 import toastify from "../../tools/toastify";
+import DeleteTask from "../../pages/main/sections/project/DeleteTask";
 
 
 function TaskCard(props) {
@@ -69,7 +70,17 @@ function TaskCard(props) {
             case "EDIT":
                 setModalBody(<EditTask task={props.task} handleSubmit={async(values) => await handleSubmit(values)} />);
                 break;
-        
+
+            case "DELETE":
+                setModalBody(
+                    <DeleteTask 
+                        taskId={props.task.getId()} 
+                        closeModal={() => handleModalClose()}
+                        deleteTask={() => props.deleteTask()}
+                    />
+                );
+                break;
+
             default:
                 setModalBody(null);
                 break;
@@ -127,14 +138,19 @@ function TaskCard(props) {
                                             </Button>
                                         </Grid>
                                         <Grid item xs={6} display="flex" alignItems="center" width="100%">
-                                            <Button id={`delete-task-${props.task.getId()}`} variant="contained" sx={{
-                                                width: "100%",
-                                                p: 1,
-                                                backgroundColor: dangerColor.main,
-                                                "&:hover": {
-                                                    backgroundColor: dangerColor.hover
-                                                }
-                                            }}>
+                                            <Button 
+                                                id={`delete-task-${props.task.getId()}`} 
+                                                variant="contained" 
+                                                onClick={() => openModal("DELETE")}
+                                                sx={{
+                                                    width: "100%",
+                                                    p: 1,
+                                                    backgroundColor: dangerColor.main,
+                                                    "&:hover": {
+                                                        backgroundColor: dangerColor.hover
+                                                    }
+                                                }}
+                                            >
                                                 <Delete />
                                             </Button>
                                         </Grid>
@@ -157,7 +173,8 @@ function TaskCard(props) {
 TaskCard.propTypes = {
     task: instanceOf(TaskModel).isRequired,
     index: number.isRequired,
-    editTask: func.isRequired
+    editTask: func.isRequired,
+    deleteTask: func.isRequired
 }
 
 export default TaskCard;
