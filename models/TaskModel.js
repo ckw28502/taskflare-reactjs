@@ -51,8 +51,8 @@ class TaskModel {
         return this.#status;
     }
 
-    editProject() {
-        
+    setStatus(status) {
+        this.#status = status;
     }
 }
 

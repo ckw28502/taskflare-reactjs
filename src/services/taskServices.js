@@ -12,6 +12,10 @@ async function createTask(values) {
         .then(response => response.data);
 }
 
+async function changeTaskStatus(values) {
+    return axiosInstance.patch(baseURL, values);
+}
+
 async function editTask(values) {
     return axiosInstance.put(baseURL, values)
         .then(response => response.data);
@@ -24,6 +28,7 @@ async function deleteTask(taskId) {
 export default {
     getAllTasks,
     createTask,
+    changeTaskStatus,
     editTask,
     deleteTask
 };

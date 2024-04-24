@@ -90,7 +90,7 @@ function TaskCard(props) {
 
     return (
         <>
-            <Draggable draggableId={props.task.getId()} index={props.index}>
+            <Draggable draggableId={props.task.getId()} index={props.index} shouldRespectForcePress={true}>
                 {provided => (
                     <Box
                         ref={provided.innerRef}

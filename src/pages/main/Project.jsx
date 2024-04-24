@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import projectServices from "../../services/projectServices";
 import ProjectModel from "../../../models/ProjectModel";
 import { Box, Button, Grid, Typography } from "@mui/material";
-import { DragDropContext } from "@hello-pangea/dnd";
 import Task from "./sections/project/Task";
 import { useTheme } from "@emotion/react";
 import { Clear, Edit, PersonAdd } from '@mui/icons-material'; // Importing Delete and Edit icons
@@ -131,10 +130,7 @@ function Project(){
                                 </Grid>
                             </Grid>
                         </Grid> 
-                        
-                        <DragDropContext>
-                            <Task project={project} />
-                        </DragDropContext>
+                        <Task project={project} />
                     </Box>
                 </Container>
             )}

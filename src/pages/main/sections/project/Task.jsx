@@ -5,6 +5,7 @@ import taskServices from "../../../../services/taskServices";
 import { instanceOf } from "prop-types";
 import ProjectModel from "../../../../../models/ProjectModel";
 import TaskModel from "../../../../../models/TaskModel";
+import { DragDropContext } from "@hello-pangea/dnd";
 
 function Task(props) {
     const [tasks, setTasks] = useState([]);
@@ -43,8 +44,32 @@ function Task(props) {
         setTasks(oldTasks => oldTasks.filter(task => task.getId() !== taskId));
     }
 
+    async function changeTaskStatus(result) {
+        if (!result.destination) {
+            return;
+        }
+
+        const id = result.draggableId;
+        const status = result.destination.droppableId;
+
+        taskServices.changeTaskStatus({
+            id,
+            status
+        })
+            .then(() => {
+                const updatedTasks = tasks.map(task => {
+                    if (task.getId() === id) {
+                        task.setStatus(status);
+                    }
+                    return task;
+                })
+                setTasks(updatedTasks);
+            })
+    }
+
     return(
-        <Grid container spacing={2} sx={{
+        <DragDropContext onDragEnd={result => changeTaskStatus(result)}>
+            <Grid container spacing={2} sx={{
             marginY: 5
         }}>
             <Grid item md={4} xs={12}>
@@ -73,6 +98,7 @@ function Task(props) {
                 />
             </Grid>
         </Grid>
+        </DragDropContext>
     );
 }
 

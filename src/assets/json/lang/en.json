@@ -39,9 +39,8 @@
         "USER_NOT_FOUND": "User is not found!"
     },
     "sidebar": {
-        "HELP": "Help",
-        "PROJECTS": "Projects",
-        "SETTINGS": "Settings"
+        "LOGOUT": "Logout",
+        "PROJECTS": "Projects"
     },
     "success": {
         "PROJECT_MODIFIED": "Project successfully modified!",

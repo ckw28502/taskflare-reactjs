@@ -39,9 +39,9 @@
         "USER_NOT_FOUND": "Pengguna tidak ditemukan!"
     },
     "sidebar": {
-        "HELP": "Bantuan",
-        "PROJECTS": "Proyek",
-        "SETTINGS": "Pengaturan"
+        "LOGOUT": "Keluar",
+        "PROJECTS": "Proyek"
+
     }, 
     "success": {
         "PROJECT_MODIFIED": "Proyek berhasil diubah!",

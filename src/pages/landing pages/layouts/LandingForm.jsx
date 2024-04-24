@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
 import { Formik, Form } from "formik";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import InputComponent from "../../../components/inputs/InputComponent";
 import PasswordComponent from "../../../components/inputs/PasswordComponent";
 import * as Yup from 'yup';
@@ -14,6 +14,14 @@ import { useEffect } from "react";
 import projectAction from "../../../redux/actions/projectAction";
 
 function LandingForm(props) {
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    if (sessionStorage.getItem("token")) {
+      navigate("/");
+    }
+  }, [navigate])
+
     const theme = useTheme();
 
     const { t } = useTranslation();
