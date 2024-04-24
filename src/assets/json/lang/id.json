@@ -1,0 +1,54 @@
+{
+    "CONFIRMATION_PASSWORD": "Kata Sandi Konfirmasi",
+    "CREATE_PROJECT": "Buat Proyek",
+    "CREATE_TASK": "Buat Tugas",
+    "DEADLINE": "Batas Waktu",
+    "DELETE_TASK": "Apakah Anda yakin akan menghapus tugas ini?",
+    "DESCRIPTION": "Deskripsi",
+    "EDIT_PROJECT": "Ubah Proyek",
+    "EDIT_TASK": "Ubah Tugas",
+    "EMAIL_ADDRESS": "Alamat email",
+    "FINISHED": "SELESAI",
+    "IN_PROGRESS": "BERJALAN",
+    "NAME": "Nama",
+    "NO_DEADLINE": "TANPA BATAS WAKTU",
+    "PASSWORD": "Kata Sandi",
+    "PLANNED": "DIRENCANAKAN",
+    "REMOVE_POSITION": "Apakah Anda yakin akan keluar dari proyek ini?",
+    "SIGN IN": "MASUK",
+    "SIGN UP": "DAFTAR",
+    "SUBMIT": "KIRIM",
+    "TITLE": "Judul",
+    "UNASSIGNED": "TIDAK DITUGASKAN",
+    "USER": "Anggota",
+    "errors": {
+        "CONFIRMATION_PASSWORD_REQUIRED": "Kata sandi konfirmasi wajib diisi!",
+        "DEADLINE_INVALID": "Batas waktu tidak valid!",
+        "DESCRIPTION_REQUIRED": "Deskripsi wajib diisi!",
+        "EMAIL_EXISTS": "Alamat email ini sudah terdaftar!",
+        "EMAIL_NOT_FOUND": "Alamat email tidak ditemukan!",
+        "EMAIL_REQUIRED": "Alamat email wajib diisi!",
+        "EMAIL_INVALID": "Alamat email tidak valid!",
+        "INTERNAL_SERVER_ERROR": "Ups, ada yang salah!",
+        "NAME_REQUIRED": "Nama wajib diisi!",
+        "PASSWORD_INVALID": "Kata sandi salah!",
+        "PASSWORD_MISSMATCH": "Kata sandi dan kata sandi konfirmasi berbeda!",
+        "PASSWORD_REQUIRED": "Kata sandi wajib diisi!",
+        "TITLE_REQUIRED": "Judul wajib diisi!",
+        "USER_ALREADY_ASSIGNED": "Pengguna sudah ditambahkan!",
+        "USER_NOT_FOUND": "Pengguna tidak ditemukan!"
+    },
+    "sidebar": {
+        "LOGOUT": "Keluar",
+        "PROJECTS": "Proyek"
+
+    }, 
+    "success": {
+        "PROJECT_MODIFIED": "Proyek berhasil diubah!",
+        "REGISTER": "Pendaftaran akun berhasil!",
+        "TASK_CREATED": "Tugas berhasil ditambahkan!",
+        "TASK_DELETED": "Tugas berhasil dihapus!",
+        "TASK_MODIFIED": "Tugas berhasil diubah!",
+        "USER_ASSIGNED": "Pengguna berhasil ditambahkan!"
+    }
+}

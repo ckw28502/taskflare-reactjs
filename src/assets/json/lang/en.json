@@ -1,0 +1,53 @@
+{
+    "CONFIRMATION_PASSWORD": "Confirmation Password",
+    "CREATE_PROJECT": "Create Project",
+    "CREATE_TASK": "Create Task",
+    "DEADLINE": "Deadline",
+    "DELETE_TASK": "Do you want to remove this task?",
+    "DESCRIPTION": "Description",
+    "EMAIL_ADDRESS": "Email Address",
+    "EDIT_PROJECT": "Edit Project",
+    "EDIT_TASK": "Edit Task",
+    "FINISHED": "FINISHED",
+    "IN_PROGRESS": "IN PROGRESS",
+    "NAME": "Name",
+    "NO_DEADLINE": "NO DEADLINE",
+    "PASSWORD": "Password",
+    "PLANNED": "PLANNED",
+    "REMOVE_POSITION": "Do you want to unassign yourself of this project?",
+    "SIGN IN": "SIGN IN",
+    "SIGN UP": "SIGN UP",
+    "SUBMIT": "SUBMIT",
+    "TITLE": "Title",
+    "UNASSIGNED": "UNASSIGNED",
+    "USER": "User",
+    "errors": {
+        "CONFIRMATION_PASSWORD_REQUIRED": "Confirmation password field is required!",
+        "DEADLINE_INVALID": "Deadline field is invalid!",
+        "DESCRIPTION_REQUIRED": "Description field is required!",
+        "EMAIL_EXISTS": "Email already registered!",
+        "EMAIL_NOT_FOUND": "Email is not registered!",
+        "EMAIL_REQUIRED": "Email field is required!",
+        "EMAIL_INVALID": "Email is invalid!",
+        "INTERNAL_SERVER_ERROR": "Oops, something went wrong!",
+        "NAME_REQUIRED": "Name field is required!",
+        "PASSWORD_INVALID": "Password is invalid!",
+        "PASSWORD_MISSMATCH": "Password and confirmation password are different!",
+        "PASSWORD_REQUIRED": "Password field is required!",
+        "TITLE_REQUIRED": "Title field is required!",
+        "USER_ALREADY_ASSIGNED": "User has already assigned!",
+        "USER_NOT_FOUND": "User is not found!"
+    },
+    "sidebar": {
+        "LOGOUT": "Logout",
+        "PROJECTS": "Projects"
+    },
+    "success": {
+        "PROJECT_MODIFIED": "Project successfully modified!",
+        "REGISTER": "You are registered now!",
+        "TASK_CREATED": "Task created successfully!",
+        "TASK_DELETED": "Task successfully deleted!",
+        "TASK_MODIFIED": "Task successfully modified!",
+        "USER_ASSIGNED": "User is successfully assigned!"
+    }
+}

@@ -1,35 +1,58 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { ThemeProvider } from "@emotion/react";
+import { CssBaseline } from "@mui/material";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Login from "./pages/landing pages/Login";
+import Register from "./pages/landing pages/Register";
+import NotFound from "./pages/NotFound";
+import lightTheme from "./mui/theme/light";
+import darkTheme from "./mui/theme/dark";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import Projects from "./pages/main/Projects";
+import Project from "./pages/main/Project";
 
 function App() {
-  const [count, setCount] = useState(0);
+    const router = createBrowserRouter([
+        {
+          path: "/login",
+          element: <Login />
+        },
+        {
+          path: "/register",
+          element: <Register />
+        },
+        {
+          path: "/",
+          element: <Projects />
+        },
+        {
+          path: "/:projectId",
+          element: <Project />
+        },
+        {
+          path: "*",
+          element: <NotFound />
+        }
+      ])
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  );
+    const isDarkMode = useSelector(state => state.darkMode.isDarkMode);
+
+    useEffect(() => {
+      if (isDarkMode) {
+        document.body.classList.remove("bg-slate-400");
+        document.body.classList.add("bg-slate-800");
+      } else {
+        document.body.classList.add("bg-slate-400");
+        document.body.classList.remove("bg-slate-800");
+      }
+    }, [isDarkMode])
+
+    return (
+        <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+            <CssBaseline />
+            <RouterProvider router={ router } />
+        </ThemeProvider>
+    )
 }
 
 export default App;
