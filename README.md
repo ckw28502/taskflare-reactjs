@@ -1,8 +1,34 @@
-# React + Vite
+# About the project
+This project is a simple task management application made using ReactJS.
+For the backend, this is the [link](https://github.com/ckw28502/taskflare-expressjs)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Requirement
+- Node v18
+- NPM v9
 
-Currently, two official plugins are available:
+# Install libraries
+```bash
+npm install
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Running the project on local server
+```bash
+npm run dev
+````
+# Testing
+```bash
+npm run test
+```
+note: this will open a new terminal for running the application and a cypress window on chrome.
+
+# Running on docker
+You need to have docker installed and running on your machine
+It also needs to be able run docker compose
+```
+docker compose up --detach
+```
+
+To stop the application
+```
+docker compose down --volumes
+```
