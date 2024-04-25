@@ -6,6 +6,11 @@ For the backend, this is the [link](https://github.com/ckw28502/taskflare-expres
 - Node v18
 - NPM v9
 
+# Prequisites step
+- copy .env.examples and paste it twice as .env and .env.docker
+- fill the URI for .env with the URI to backend (default is http://localhost:5173)
+- fill the URI for .env.docker with the URI to backend container (default is http://taskflare-expressjs-app-1:5173)
+
 # Install libraries
 ```bash
 npm install
